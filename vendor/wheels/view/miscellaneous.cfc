@@ -633,8 +633,13 @@ component {
 		}
 		try {
 			if (Find(".", arguments.objectName) || Find("[", arguments.objectName)) {
-				// Evaluate the expression in the context of variableScope
-				return Evaluate(reReplace(arguments.objectName, "^variables\.", "variableScope.", "one"));
+				if(arguments.objectName.startsWith("request.")){
+					local.rv = request[replaceNoCase(arguments.objectName, "request.", "", "one")];
+				} else if(arguments.objectName.startsWith("variables.")){
+					local.rv = variableScope[replaceNoCase(arguments.objectName, "variables.", "", "one")];
+				} else{
+					local.rv = getValueByDynamicPath(arguments.objectName, variableScope);
+				}
 			} else {
 				local.rv = variableScope[arguments.objectName];
 			}
@@ -668,5 +673,33 @@ component {
 			}
 		}
 		return local.rv;
+	}
+
+	/**
+	 * Function to dynamically resolve values based on a string path.
+	 * @path The path to resolve the values from.
+	 * @variableScope The scope from which to resolve the path from.
+	 */
+	public any function getValueByDynamicPath(required string path, required struct variableScope) {
+		// Extract keys and indexes using a regular expression
+		local.pattern = "[a-zA-Z0-9_]+|\\['[^\\]]+'\\]";
+		local.matches = REMatchNoCase(local.pattern, arguments.path);
+
+		// Prepare the starting object
+		local.currentObject = arguments.variableScope;
+
+		for (key in local.matches) {
+			// Dynamically navigate the object structures
+			if (IsArray(local.currentObject) && IsNumeric(key)) {
+				local.currentObject = local.currentObject[val(key)];
+			}else if (StructKeyExists(local.currentObject, key)) {
+				local.currentObject = local.currentObject[key];
+			}
+			else {
+				return "Key not found: " & key;
+			}
+		}
+
+		return local.currentObject;
 	}
 }
