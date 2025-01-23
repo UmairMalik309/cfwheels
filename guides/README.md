@@ -34,7 +34,7 @@ Okay, now that we have CommandBox installed, let's add the CFWheels CLI module.
 
 {% tabs %}
 {% tab title="CommandBox" %}
-install cfwheels-cli
+install wheels-cli
 {% endtab %}
 {% endtabs %}
 
