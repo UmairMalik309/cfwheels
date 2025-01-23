@@ -40,6 +40,16 @@ install wheels-cli
 
 Installing this module will add a number of commands to your default CommandBox installation. All of these commands are prefixed by the `wheels` name space. There are commands to create a brand new CFWheels application or scaffold out sections of your application. We'll see some of these commands in action momentarily.
 
+### Start a new Application using the Wizard
+
+To install a new application using the 3.0 Snapshot architecture, we can uise the new application wizard and select Bleeding Edge when promted to select the template to use.
+
+{% tabs %}
+{% tab title="CommandBox" %}
+wheels new
+{% endtab %}
+{% endtabs %}
+
 ### Start a new Application
 
 Now that we have CommandBox installed and extended it with the CFWheels CLI module, let's start our first CFWheels app from the command line. We'll look at the simplest method for creating a CFWheels app and starting our development server.
