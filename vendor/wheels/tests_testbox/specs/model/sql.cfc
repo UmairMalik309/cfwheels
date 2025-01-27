@@ -113,6 +113,20 @@ component extends="testbox.system.BaseSpec" {
 
 				expect(actual.recordcount).toBeGT(0)
 			})
+
+			it( "CONCAT works with table alias", function(){
+				actual = g.model("user").findAll(where = "username='tonyp'", select = "CONCAT(users.firstname,' ',users.lastname) as fullname")
+
+				expect(	actual.fullname ).toBe("Tony Petruzzi")
+			});
+
+			it( "CONCAT fails without table alias", function(){
+
+				expect(	function(){
+					g.model("user").findAll(where = "username='tonyp'", select = "CONCAT(firstname,' ',lastname) as fullname")
+				}).toThrow("Wheels.ColumnNotFound");
+
+			});
 		})
 	}
 }
