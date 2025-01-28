@@ -3,10 +3,10 @@
 ## INTRODUCTION
 
 * [Getting Started](README.md)
-  * [Running Local Development servers](introduction/getting-started/running-local-development-servers.md)
-  * [Beginner Tutorial: Hello World](introduction/getting-started/beginner-tutorial-hello-world.md)
-  * [Beginner Tutorial: Hello Database](introduction/getting-started/beginner-tutorial-hello-database.md)
-  * [Tutorial: CFWheels, AJAX, and You](introduction/getting-started/tutorial-cfwheels-ajax-and-you.md)
+  * [Running Local Development servers](introduction/readme/running-local-development-servers.md)
+  * [Beginner Tutorial: Hello World](introduction/readme/beginner-tutorial-hello-world.md)
+  * [Beginner Tutorial: Hello Database](introduction/readme/beginner-tutorial-hello-database.md)
+  * [Tutorial: CFWheels, AJAX, and You](introduction/readme/tutorial-cfwheels-ajax-and-you.md)
 * [Frameworks and CFWheels](introduction/frameworks-and-cfwheels.md)
 * [Requirements](introduction/requirements.md)
 * [Manual Installation](introduction/manual-installation.md)

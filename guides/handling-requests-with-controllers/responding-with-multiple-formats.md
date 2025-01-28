@@ -27,7 +27,7 @@ using the following methods:
 
 Which formats you can request is determined by what you configure in the\
 controller. See the section below on _Responding to Different Formats in the_\
-_Controller_ for more details.
+&#xNAN;_&#x43;ontroller_ for more details.
 
 #### URL Variable
 
@@ -88,7 +88,7 @@ of the box.
 * `xls`
 
 You can use [addFormat()](https://api.cfwheels.org/controller.addformat.html) to set more types to the appropriate MIME type for reference. For example, we could set a Microsoft Word MIME type in\
-`app/config/settings.cfm` like so:&#x20;
+`app/config/settings.cfm` like so:
 
 ```javascript
 application.wo.addFormat(extension="doc", mimeType="application/msword");
