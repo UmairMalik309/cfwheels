@@ -1,7 +1,7 @@
 component extends="wheels.tests.Test" {
 
 	function setup() {
-		_controller = application.wirebox.getInstance( "wheels.Controller" );
+		_controller = controller(name = "ControllerWithModel");
 		set(functionName = "checkBoxTag", encode = false);
 		set(functionName = "textField", encode = false);
 		set(functionName = "textFieldTag", encode = false);
@@ -53,56 +53,49 @@ component extends="wheels.tests.Test" {
 	/* object based helpers */
 
 	function test_custom_label_on_object_helper() {
-		tag = model("tag").findOne(order = "id");
-		actual = _controller.textField(objectName = "tag", property = "name", label = "The Label:");
-		expected = '<label for="tag-name">The Label:<input id="tag-name" maxlength="50" name="tag[name]" type="text" value="releases"></label>';
+		actual = _controller.textField(objectName = "user", property = "username", label = "The Label:");
+		expected = '<label for="user-username">The Label:<input id="user-username" maxlength="50" name="user[username]" type="text" value="tonyp"></label>';
 		assert('actual eq expected');
 	}
 
 	function test_custom_label_on_object_helper_and_overriding_id() {
-		tag = model("tag").findOne(order = "id");
 		actual = _controller.textField(
-			objectName = "tag",
-			property = "name",
+			objectName = "user",
+			property = "username",
 			label = "The Label:",
 			id = "the-id"
 		);
-		expected = '<label for="the-id">The Label:<input id="the-id" maxlength="50" name="tag[name]" type="text" value="releases"></label>';
+		expected = '<label for="the-id">The Label:<input id="the-id" maxlength="50" name="user[username]" type="text" value="tonyp"></label>';
 		assert('actual eq expected');
 	}
 
 	function test_blank_label_on_object_helper() {
-		tag = model("tag").findOne(order = "id");
-		actual = _controller.textField(objectName = "tag", property = "name", label = "");
-		expected = '<input id="tag-name" maxlength="50" name="tag[name]" type="text" value="releases">';
+		actual = _controller.textField(objectName = "user", property = "username", label = "");
+		expected = '<input id="user-username" maxlength="50" name="user[username]" type="text" value="tonyp">';
 		assert('actual eq expected');
 	}
 
 	function test_automatic_label_on_object_helper_with_around_placement() {
-		tag = model("tag").findOne(order = "id");
-		actual = _controller.textField(objectName = "tag", property = "name", labelPlacement = "around");
-		expected = '<label for="tag-name">Tag name<input id="tag-name" maxlength="50" name="tag[name]" type="text" value="releases"></label>';
+		actual = _controller.textField(objectName = "user", property = "username", labelPlacement = "around");
+		expected = '<label for="user-username">Username<input id="user-username" maxlength="50" name="user[username]" type="text" value="tonyp"></label>';
 		assert('actual eq expected');
 	}
 
 	function test_automatic_label_on_object_helper_with_before_placement() {
-		tag = model("tag").findOne(order = "id");
-		actual = _controller.textField(objectName = "tag", property = "name", labelPlacement = "before");
-		expected = '<label for="tag-name">Tag name</label><input id="tag-name" maxlength="50" name="tag[name]" type="text" value="releases">';
+		actual = _controller.textField(objectName = "user", property = "username", labelPlacement = "before");
+		expected = '<label for="user-username">Username</label><input id="user-username" maxlength="50" name="user[username]" type="text" value="tonyp">';
 		assert('actual eq expected');
 	}
 
 	function test_automatic_label_on_object_helper_with_after_placement() {
-		tag = model("tag").findOne(order = "id");
-		actual = _controller.textField(objectName = "tag", property = "name", labelPlacement = "after");
-		expected = '<input id="tag-name" maxlength="50" name="tag[name]" type="text" value="releases"><label for="tag-name">Tag name</label>';
+		actual = _controller.textField(objectName = "user", property = "username", labelPlacement = "after")
+		expected = '<input id="user-username" maxlength="50" name="user[username]" type="text" value="tonyp"><label for="user-username">Username</label>'
 		assert('actual eq expected');
 	}
 
 	function test_automatic_label_on_object_helper_with_non_persisted_property() {
-		tag = model("tag").findOne(order = "id");
-		actual = _controller.textField(objectName = "tag", property = "virtual");
-		expected = '<label for="tag-virtual">Virtual property<input id="tag-virtual" name="tag[virtual]" type="text" value=""></label>';
+		actual = _controller.textField(objectName = "user", property = "virtual");
+		expected = '<label for="user-virtual">Virtual<input id="user-virtual" name="user[virtual]" type="text" value=""></label>';
 		assert('actual eq expected');
 	}
 
