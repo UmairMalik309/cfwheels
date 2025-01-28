@@ -6,7 +6,7 @@ component extends="wheels.tests.Test" {
 		config = {
 			path = "wheels",
 			fileName = "Plugins",
-			method = "init",
+			method = "$init",
 			pluginPath = "/wheels/tests/_assets/plugins/standard",
 			deletePluginDirectories = false,
 			overwritePlugins = false,
@@ -18,7 +18,7 @@ component extends="wheels.tests.Test" {
 		_params = {controller = "test", action = "index"};
 		c = controller("test", _params);
 		d = $createObjectFromRoot(path = "wheels", fileName = "Dispatch", method = "$init");
-		t = CreateObject("component", "wheels.Test");
+		t = application.wirebox.getInstance("wheels.Test");
 	}
 
 	function teardown() {
