@@ -430,7 +430,13 @@ component {
 							local.rv = ReplaceNoCase(local.rv, local.fullMatch, Chr(35), "one");
 						} else {
 							// Retrieve variable value from function scope or arguments
-							local.value = StructFind(variables, local.varName, StructFind(arguments, local.varName, local.fullMatch));
+							if (StructKeyExists(variables, local.varName)) {
+								local.value = variables[local.varName];
+							} else if (StructKeyExists(arguments, local.varName)) {
+								local.value = arguments[local.varName];
+							} else {
+								local.value = local.fullMatch; // Keep as-is if not found
+							}
 
 							// Replace occurrences of #variable# with the actual value
 							local.rv = ReplaceNoCase(local.rv, local.fullMatch, local.value, "one");
