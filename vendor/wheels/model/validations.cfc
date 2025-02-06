@@ -412,10 +412,37 @@ component {
 		local.rv = arguments.message;
 		// evaluate the error message if it contains pound signs
 		if (Find(Chr(35), local.rv)) {
-			// use a try / catch here since it will fail if a pound sign is used that's not in an expression
-			try {
-				local.rv = Evaluate(De(local.rv));
-			} catch (any e) {
+			// Extract variable names between # symbols
+			local.regex = "(##([^#chr(35)#]*)##|####)";
+			local.matches = REMatchNoCase(local.regex, local.rv);
+			local.matchCount = ArrayLen(local.matches);
+
+			if (local.matchCount) {
+				for (local.i = 1; local.i <= local.matchCount; local.i++) {
+					local.fullMatch = local.matches[local.i]; // The full #variable# match
+
+					// Ensure it contains #
+					if (Find(Chr(35), local.fullMatch)) {
+						local.varName = ReplaceNoCase(local.fullMatch, "#chr(35)#", "", "ALL");
+
+						// If empty ##, replace with a single #
+						if (Len(local.varName) EQ 0) {
+							local.rv = ReplaceNoCase(local.rv, local.fullMatch, Chr(35), "one");
+						} else {
+							// Retrieve variable value from function scope or arguments
+							if (StructKeyExists(variables, local.varName)) {
+								local.value = variables[local.varName];
+							} else if (StructKeyExists(arguments, local.varName)) {
+								local.value = arguments[local.varName];
+							} else {
+								local.value = local.fullMatch; // Keep as-is if not found
+							}
+
+							// Replace occurrences of #variable# with the actual value
+							local.rv = ReplaceNoCase(local.rv, local.fullMatch, local.value, "one");
+						}
+					}
+				}
 			}
 		}
 
