@@ -3,6 +3,7 @@
 .CommandBox
 .settings
 .classpath
+.engine
 
 CFIDE
 cfide
