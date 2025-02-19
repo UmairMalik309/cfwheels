@@ -761,7 +761,7 @@ component output="false" displayName="Test" extends="wheels.Global"{
 					local.functionName = replaceNoCase(local.parts[2], "()", "");
 					local.structRef = variables[local.parts[1]];
 					if (structKeyExists(local.structRef, local.functionName)) {
-						return local.structRef[local.functionName]();
+						return invoke(local.structRef, local.functionName);
 					}
 				} else {
 					if(findNoCase("=", local.match.match[2]) != 0){
