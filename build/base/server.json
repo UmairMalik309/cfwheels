@@ -9,6 +9,7 @@
 			}
 	},
 	"app":{
-			"cfengine":"|cfmlEngine|"
+			"cfengine":"|cfmlEngine|",
+      "libDirs":"app/lib"
 	}
 }
