@@ -18,5 +18,8 @@
 			"libDirs":"docker/adobe@2023/lib",
 			"serverHomeDirectory":".engine/adobe@2023"
 	},
-	"cfconfigFile":"CFConfig.json"
+	"cfconfigFile":"CFConfig.json",
+	"scripts":{
+        "onServerInstall":"cfpm install image,mail,zip,caching"
+    }
 }
