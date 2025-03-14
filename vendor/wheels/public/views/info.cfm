@@ -164,7 +164,7 @@ settings = [
 			<td class='eight wide'>
 				#application.applicationName#
 				<cfif NOT Len($get("reloadPassword"))>
-					[<a href="#local.baseReloadURL#true">Reload</a>]
+					[<a href="?reload">Reload</a>]
 				</cfif>
 			</td>
 		</tr>
