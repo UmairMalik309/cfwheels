@@ -13,6 +13,7 @@ services:
       context: ./
       dockerfile: ./docker/lucee@5/Dockerfile
     image: cfwheels-test-lucee5:v1.0.2
+    restart: always
     volumes:
       - ./:/cfwheels-test-suite
       - ~/.CommandBox/artifacts:/root/.CommandBox/artifacts
@@ -30,6 +31,7 @@ services:
       context: ./
       dockerfile: ./docker/lucee@6/Dockerfile
     image: cfwheels-test-lucee6:v1.0.2
+    restart: always
     volumes:
       - ./:/cfwheels-test-suite
       - ~/.CommandBox/artifacts:/root/.CommandBox/artifacts
@@ -47,6 +49,7 @@ services:
       context: ./
       dockerfile: ./docker/adobe@2018/Dockerfile
     image: cfwheels-test-adobe2018:v1.0.2
+    restart: always
     volumes:
       - ./:/cfwheels-test-suite
       - ~/.CommandBox/artifacts:/root/.CommandBox/artifacts
@@ -64,6 +67,7 @@ services:
       context: ./
       dockerfile: ./docker/adobe@2021/Dockerfile
     image: cfwheels-test-adobe2021:v1.0.2
+    restart: always
     volumes:
       - ./:/cfwheels-test-suite
       - ~/.CommandBox/artifacts:/root/.CommandBox/artifacts
@@ -81,6 +85,7 @@ services:
       context: ./
       dockerfile: ./docker/adobe@2023/Dockerfile
     image: cfwheels-test-adobe2023:v1.0.1
+    restart: always
     volumes:
       - ./:/cfwheels-test-suite
       - ~/.CommandBox/artifacts:/root/.CommandBox/artifacts
