@@ -19,7 +19,7 @@ jobs:
         jdkVersion: [ "21" ]
         experimental: [false]
         cfengine: [ "lucee@5", "lucee@6", "adobe@2018", "adobe@2021", "adobe@2023" ]
-        dbengine: ["mysql", "postgres", "sqlserver", "h2"]
+        dbengine: ["mysql", "postgres", "sqlserver_cicd", "h2"]
         exclude:
           # - cfengine: lucee@5
           #   dbengine: mysql
