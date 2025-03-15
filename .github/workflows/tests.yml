@@ -26,7 +26,7 @@ jobs:
           # - cfengine: lucee@5
           #   dbengine: postgres
           # - cfengine: lucee@5
-          #   dbengine: sqlserver
+          #   dbengine: sqlserver_cicd
           # - cfengine: lucee@5
           #   dbengine: h2
           # - cfengine: lucee@6
@@ -34,7 +34,7 @@ jobs:
           # - cfengine: lucee@6
           #   dbengine: postgres
           # - cfengine: lucee@6
-          #   dbengine: sqlserver
+          #   dbengine: sqlserver_cicd
           # - cfengine: lucee@6
           #   dbengine: h2
           # - cfengine: adobe@2018
@@ -42,7 +42,7 @@ jobs:
           # - cfengine: adobe@2018
           #   dbengine: postgres
           - cfengine: adobe@2018
-            dbengine: sqlserver
+            dbengine: sqlserver_cicd
           - cfengine: adobe@2018
             dbengine: h2
           # - cfengine: adobe@2021
@@ -50,7 +50,7 @@ jobs:
           # - cfengine: adobe@2021
           #   dbengine: postgres
           # - cfengine: adobe@2021
-          #   dbengine: sqlserver
+          #   dbengine: sqlserver_cicd
           - cfengine: adobe@2021
             dbengine: h2
           # - cfengine: adobe@2023
@@ -58,7 +58,7 @@ jobs:
           # - cfengine: adobe@2023
           #   dbengine: postgres
           # - cfengine: adobe@2023
-          #   dbengine: sqlserver
+          #   dbengine: sqlserver_cicd
           - cfengine: adobe@2023
             dbengine: h2
     steps:
