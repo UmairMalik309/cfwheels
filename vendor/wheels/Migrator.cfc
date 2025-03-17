@@ -24,7 +24,7 @@ component output="false" extends="wheels.Global"{
 	 * @version The Database schema version to migrate to
 	 * @missingMigFlag Flag for any available missing migrations
 	 */
-	public string function migrateTo(string version = "", boolean missingMigFlag) {
+	public string function migrateTo(string version = "", boolean missingMigFlag = false) {
 		local.rv = "";
 		local.currentVersion = getCurrentMigrationVersion();
 		local.appKey = $appKey();
