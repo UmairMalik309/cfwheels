@@ -7,13 +7,13 @@
 	*/
 
 	/*
-		You can change the "wheels.fw" value from the two functions below to set your datasource.
+		You can change the "wheels.dev" value from the two functions below to set your datasource.
 		You can change the the value for the "dataSourceName" to set a default datasource to be used throughout your application.
 		You can also change the value for the "coreTestDataSourceName" to set your testing datasource.
 		You can also uncomment the 2 "set" functions below them to set the username and password for the datasource.
 	*/
-	set(coreTestDataSourceName="wheels.fw");
-	set(dataSourceName="wheels.fw");
+	set(coreTestDataSourceName="wheels.dev");
+	set(dataSourceName="wheels.dev");
 	// set(dataSourceUserName="");
 	// set(dataSourcePassword="");
 
@@ -25,8 +25,8 @@
 	*/
 	set(URLRewriting="On");
 
-	// Reload your application with ?reload=true&password=wheels.fw
-	set(reloadPassword="wheels.fw");
+	// Reload your application with ?reload=true&password=wheels.dev
+	set(reloadPassword="wheels.dev");
 
 	// CLI-Appends-Here
 </cfscript>

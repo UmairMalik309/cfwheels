@@ -80,7 +80,7 @@ By default, the names of CFWheels models, model properties, database tables, and
 
 ### Data Sources
 
-By default, the datasource is set to `wheels.fw` in the `app/config/settings.cfm` file. You can change the value in the `set(dataSourceName="wheels.fw")` function to whatever you want the name of teh datasource to be. 
+By default, the datasource is set to `wheels.dev` in the `app/config/settings.cfm` file. You can change the value in the `set(dataSourceName="wheels.dev")` function to whatever you want the name of teh datasource to be.
 
 Refer to the [Configuration and Defaults](https://guides.cfwheels.org/2.5.0/v/3.0.0-snapshot/working-with-cfwheels/configuration-and-defaults) chapter for instructions on overriding data source information.
 

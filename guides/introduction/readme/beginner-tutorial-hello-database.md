@@ -20,7 +20,7 @@ You can download all the source code for this sample application from [https://g
 
 ### Setting up the Data Source
 
-By default, CFWheels will connect to a data source `wheels.fw`. To change this default behavior, open the file at `app/config/settings.cfm`. In a fresh install of CFWheels, you'll see the follwing code:
+By default, CFWheels will connect to a data source `wheels.dev`. To change this default behavior, open the file at `app/config/settings.cfm`. In a fresh install of CFWheels, you'll see the follwing code:
 
 {% code title="app/config/settings.cfm" %}
 ```html
@@ -33,12 +33,12 @@ By default, CFWheels will connect to a data source `wheels.fw`. To change this d
 	*/
 
 	/*
-		You can change the "wheels.fw" value from the two functions below to set your datasource.
+		You can change the "wheels.dev" value from the two functions below to set your datasource.
 		You can change the the value for the "dataSourceName" to set a default datasource to be used throughout your application.
 		You can also change the value for the "coreTestDataSourceName" to set your testing datasource.
 	*/
-	set(coreTestDataSourceName="wheels.fw");
-	set(dataSourceName="wheels.fw");
+	set(coreTestDataSourceName="wheels.dev");
+	set(dataSourceName="wheels.dev");
     // set(dataSourceUserName="");
     // set(dataSourcePassword="");
 
@@ -50,8 +50,8 @@ By default, CFWheels will connect to a data source `wheels.fw`. To change this d
 	*/
 	set(URLRewriting="On");
 
-	// Reload your application with ?reload=true&password=wheels.fw
-	set(reloadPassword="wheels.fw");
+	// Reload your application with ?reload=true&password=wheels.dev
+	set(reloadPassword="wheels.dev");
 
 	// CLI-Appends-Here
 </cfscript>

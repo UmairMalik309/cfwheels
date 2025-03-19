@@ -14,7 +14,7 @@ This tutorial makes extensive use of CommandBox, GIT and the CFWheels CLI.
 
 We strongly recommend always having the latest version of [CommandBox](https://www.ortussolutions.com/products/commandbox).
 
-You'll also want the CFWheels CLI. You can install that in CommandBox via `install cfwheels-cli`. This will also update it if you've got an older version installed.
+You'll also want the CFWheels CLI. You can install that in CommandBox via `install wheels-cli`. This will also update it if you've got an older version installed.
 
 Some scripted commands also require the git CLI, although these are technically optional.
 
@@ -239,7 +239,7 @@ Set location = neokoenig/cfwheels-cli#v0.1.7
 Package is a Git repo.  Tagging...
 Tag [v0.1.7] created.
 Sending package information to ForgeBox, please wait...
-Package is alive, you can visit it here: https://www.forgebox.io/view/cfwheels-cli
+Package is alive, you can visit it here: https://www.forgebox.io/view/wheels-cli
 
 Running package script [postPublish].
 > !git push --follow-tags
