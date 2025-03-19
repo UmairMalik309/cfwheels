@@ -28,7 +28,7 @@ version
 
 This is a good concept to grasp, cause depending on your workflow, you may find it easier to do one versus the other. Most of the commands you will see in these CLI guides will assume that you are entering the command in the actual CommandBox shell so the `box` prefix is left off.
 
-### Install the cfwheels-cli CommandBox Module
+### Install the wheels-cli CommandBox Module
 
 Okay, now that we have CommandBox installed, let's add the CFWheels CLI module.
 
@@ -42,7 +42,7 @@ Installing this module will add a number of commands to your default CommandBox 
 
 ### Start a new Application using the Wizard
 
-To install a new application using the 3.0 Snapshot architecture, we can uise the new application wizard and select Bleeding Edge when promted to select the template to use.
+To install a new application using version 3.0, we can use the new application wizard and select Bleeding Edge when prompted to select the template to use.
 
 {% tabs %}
 {% tab title="CommandBox" %}
@@ -50,9 +50,9 @@ wheels new
 {% endtab %}
 {% endtabs %}
 
-### Start a new Application
+### Start a New Application Using the Command Line
 
-Now that we have CommandBox installed and extended it with the CFWheels CLI module, let's start our first CFWheels app from the command line. We'll look at the simplest method for creating a CFWheels app and starting our development server.
+Now that we have CommandBox installed and extended it with the Wheels CLI module, let's start our first Wheels app from the command line. We'll look at the simplest method for creating a Wheels app and starting our development server.
 
 {% tabs %}
 {% tab title="CommandBox" %}
@@ -67,7 +67,7 @@ A few minutes after submitting the above commands a new browser window should op
 
 <figure><img src=".gitbook/assets/Screenshot 2025-01-23 at 11.21.18 AM.png" alt=""><figcaption></figcaption></figure>
 
-So what just happened? Since we only passed the application name `myApp` to the `wheels generate app` command, it used default values for most of its parameters and downloaded our Base template (cfwheels-base-template) from ForgeBox.io, then downloaded the framework core files (cfwheels) from ForgeBox.io and placed it in the wheels directory, then configured the application name and reload password, and started a Lucee server on a random port.
+So what just happened? Since we only passed the application name `myApp` to the `wheels generate app` command, it used default values for most of its parameters and downloaded our Base template (cfwheels-base-template) from ForgeBox.io, then downloaded the framework core files (wheels.dev) from ForgeBox.io and placed it in the `vendor/wheels` directory, then configured the application name and reload password, and started a Lucee server on a random port.
 
 {% hint style="info" %}
 **A Word About Command Aliases**
@@ -79,4 +79,4 @@ In addition to shortening `generate` to `g`, aliases can completely change the n
 This command has the normal alias referenced above at `wheels g app-wizard` but it also has an additional alias at `wheels new` which is the command more prevalent in the Rails community. So the three commands `wheels generate app-wizard`, `wheels g app-wizard`, and `wheels new` all call the same functionality which guides the user though a set of menus, collecting details on how to configure the desired app. Once all the parameters have been gathered, this command actually calls the `wheels generate app` command to create the actual CFWheels application.
 {% endhint %}
 
-This getting started guide has taken you from the very beginning and gotten you to the point where you can go into any empty directory on your local development machine and start a CFWheels project by issuing a couple of CLI commands. In later guides we'll explore these options further and see what else the CLI can do for us.
+This **Getting Started** guide has taken you from the very beginning and gotten you to the point where you can go into any empty directory on your local development machine and start a CFWheels project by issuing a couple of CLI commands. In later guides we'll explore these options further and see what else the CLI can do for us.

@@ -26,7 +26,7 @@ version
 
 This is a good concept to grasp, cause depending on your workflow, you may find it easier to do one versus the other. Most of the commands you will see in these CLI guides will assume that you are entering the command in the actual CommandBox shell so the `box` prefix is left off.
 
-### Install the cfwheels-cli CommandBox Module
+### Install the wheels-cli CommandBox Module
 
 Okay, now that we have CommandBox installed, let's add the CFWheels CLI module.
 
