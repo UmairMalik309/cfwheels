@@ -19,7 +19,7 @@ We use a javadoc style of notation to document all the public functions of the f
 
 So the first step in submitting changes to the API Documentation is similar to the CFWheels Guides and starts with cloning the repository, making the changes, and submitting a PR.
 
-Once approved and merged in, then the json file is generated using a utility imbedded in the framework itself. So once a version has been published to ForgeBox (either a SNAPSHOT or a stable release), use command box to install that version of the framework.
+Once approved and merged in, then the json file is generated using a utility embedded in the framework itself. So once a version has been published to ForgeBox (either a SNAPSHOT or a stable release), use command box to install that version of the framework.
 
 ```wheels generate app name=json template=cfwheels-base-template@be cfmlEngine=lucee@5```
 
@@ -31,7 +31,7 @@ When the Congratulations screen is displayed, click on the Info Tab on the top m
 
 Then click on the Export Docs as JSON link to generate the json file. Save the json file. Typically these files are named based on the version of the framework they represent. i.e. the file for v2.5.0 would be named  v2.5.json.
 
-Now that we have generated the jason data file, we need to add it to the codebase for the API Documentation site. This codebase is driven from the [cfwheels-api repository](https://github.com/cfwheels/cfwheels-api). A PR can be used to submit the json file to this repository. Currently the core team is manually adding this file to the repository when the API docs need to be updated.
+Now that we have generated the JSON data file, we need to add it to the codebase for the API Documentation site. This codebase is driven from the [cfwheels-api repository](https://github.com/cfwheels/cfwheels-api). A PR can be used to submit the json file to this repository. Currently the core team is manually adding this file to the repository when the API docs need to be updated.
 
 The application is then uploaded to the site hosted by [Viviotech](http://www.viviotech.net).
 

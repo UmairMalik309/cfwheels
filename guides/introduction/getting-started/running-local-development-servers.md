@@ -10,25 +10,26 @@ server start
 {% endtab %}
 {% endtabs %}
 
-The server will then start on a random port on `127.0.0.1` and will create a `server.json` file in your webroot. We can add various options to `server.json` to customize our server. Here's an example:
+The server will then start on a random port on `127.0.0.1` based the configuration from the `server.json` file that is in the root of your application that comes with wheels. We can add various options to `server.json` to customize our server. Your default `server.json` will look something like this:
 
 ```json
 {
-    "name":"myApp",
-    "force":true,
+    "name":"wheels",
     "web":{
-        "http":{
-            "port":60000
-        },
+        "host":"localhost",
+        "webroot":"public",
         "rewrites":{
             "enable":true,
-            "config":"urlrewrite.xml"
+            "config":"public/urlrewrite.xml"
         }
+    },
+    "app":{
+        "cfengine":"lucee"
     }
 }
 ```
 
-In this example, I've set the server name to `myApp`, meaning I can now start the server from any directory by simply calling `start myApp`. I've also specified a specific port, `60000`, but you can specify any port you want, or just remove that to start on a random port each time. Lastly, I've enabled URL rewriting and pointed the URL rewrite configuration file to `urlrewrite.xml`, which is included starting from CFWheels 2.x. (If you've used the `wheels new` command to create your app, this will already be done for you).
+In this `server.json` file, the server name is set to `wheels`, meaning I can now start the server from any directory by simply calling `start myApp`. We don't have any port specified, but you can specify any port you want. Lastly, we have URL rewriting enabled and pointed the URL rewrite configuration file to `public/urlrewrite.xml`, which is included starting from CFWheels 2.x.
 
 #### Using custom host names
 
@@ -154,7 +155,7 @@ You can of course run multiple servers, so if you need to test your app on Lucee
 CommandBox 5.1 required to install dependencies easily
 {% endhint %}
 
-By default the Lucee server that CommandBox starts has all the basic Lucee extensions that you are going to need installed, but if need to minimize the size of the Lucee instance you launch, then you can use Lucee-Light by specifying `cfengine=lucee-light` in your `server.json` file. CFWheels can run just fine on lucee-light (which is after all, Lucee, minus all the extensions) but at a minimum, requires the following extensions to be installed as dependencies in your `box.json`. Please note you may have to add any drivers you need for your database to this list as well.
+By default, the Lucee server that CommandBox starts includes all the essential Lucee extensions you need, but if need to minimize the size of the Lucee instance you launch, then you can use Lucee-Light by specifying `cfengine=lucee-light` in your `server.json` file. CFWheels can run just fine on lucee-light (which is after all, Lucee, minus all the extensions) but at a minimum, requires the following extensions to be installed as dependencies in your `box.json`. Please note you may have to add any drivers you need for your database to this list as well.
 
 ```json
 "dependencies":{

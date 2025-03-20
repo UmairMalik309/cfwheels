@@ -80,7 +80,7 @@ By default, the names of CFWheels models, model properties, database tables, and
 
 ### Data Sources
 
-By default, the datasource is set to `wheels.dev` in the `app/config/settings.cfm` file. You can change the value in the `set(dataSourceName="wheels.dev")` function to whatever you want the name of teh datasource to be.
+By default, the datasource is set to `wheels.dev` in the `app/config/settings.cfm` file. You can change the value in the `set(dataSourceName="wheels.dev")` function to whatever you want the name of the datasource to be.
 
 Refer to the [Configuration and Defaults](https://guides.cfwheels.org/2.5.0/v/3.0.0-snapshot/working-with-cfwheels/configuration-and-defaults) chapter for instructions on overriding data source information.
 
@@ -94,11 +94,11 @@ Like controller files, models are also CFCs and are named in `PascalCase`. They 
 
 For instructions on overriding database naming conventions, refer to documentation for the [table()](https://api.cfwheels.org/model.table.html) function and the chapter on [Object Relational Mapping](https://guides.cfwheels.org/2.5.0/v/3.0.0-snapshot/database-interaction-through-models/object-relational-mapping).
 
-### Everything in the Database Is Lowercase
+### Everything in the Database is Lowercase
 
 In your database, both table names and column names should be lowercase. The `customersegments` table could have fields called `title`, `regionid`, and `incomelevel`, for example.
 
-Because of CFML's case insensitive nature, we recommend that you refer to model names and corresponding properties in `camelCase`. This makes for easier readability in your application code.
+Because of CFML's case-insensitive nature, we recommend that you refer to model names and corresponding properties in `camelCase`. This makes for easier readability in your application code.
 
 In the `customersegments` example above, you could refer to the properties in your CFML as `title`, `regionId`, and `incomeLevel` to stick to CFML's Java-style roots. (Built-in CFML functions are often written in `camelCase` and `PascalCase`, after all.)
 

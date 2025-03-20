@@ -2,7 +2,7 @@
 description: Techniques for migrating your database in production
 ---
 
-# Migrations In Production
+# Migrations in Production
 
 Once you've created your migration files and committed your changes (you are all using source control - right?) you might be wondering about the different ways to migrate your database in a production environment.
 

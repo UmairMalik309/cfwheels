@@ -95,7 +95,7 @@ set(environment="development");
 
 ### URL Rewriting Settings
 
-Sometimes it is useful for our applications to "force" URL rewriting. By default, CFWheels will try to determinate what type of URL rewriting to perform and set it up for you. But you can force in or out this setting by using the example below:
+Sometimes it is useful for our applications to "force" URL rewriting. By default, CFWheels will try to determine what type of URL rewriting to perform and set it up for you. But you can force in or out this setting by using the example below:
 
 {% code title="CFScript" %}
 ```javascript
@@ -295,14 +295,14 @@ CFWheels includes built-in Cross-Site Request Forgery (CSRF) protection for form
 | csrfCookieName                | string  | \_wheels\_authenticity | The name of the cookie to be set to store CSRF token data. This value is ignored if you're using `session` storage.                                                                                                                                                                                                                                     |
 | csrfCookieDomain              | string  |                        | Domain to set the cookie on. See your CF engine's documentation for `cfcookie` for more information.                                                                                                                                                                                                                                                    |
 | csrfCookieEncodeValue         | boolean |                        | Whether or not to have CF encode the cookie. See your CF engine's documentation for `cfcookie` for more information.                                                                                                                                                                                                                                    |
-| csrfCookieHttpOnly            | boolean | true                   | Whether or not the have CF set the cookie as `HTTPOnly`. See your CF engine's documentation for `cfcookie` for more information.                                                                                                                                                                                                                        |
+| csrfCookieHttpOnly            | boolean | true                   | Whether or not they have CF set the cookie as `HTTPOnly`. See your CF engine's documentation for `cfcookie` for more information.                                                                                                                                                                                                                       |
 | csrfCookiePath                | string  | /                      | Path to set the cookie on. See your CF engine's documentation for `cfcookie` for more information.                                                                                                                                                                                                                                                      |
 | csrfCookiePreserveCase        | boolean |                        | Whether or not to preserve the case of the cookie's name. See your CF engine's documentation for `cfcookie` for more information.                                                                                                                                                                                                                       |
 | csrfCookieSecure              | boolean |                        | Whether or not to only allow the cookie to be delivered over the HTTPS protocol. See your CF engine's documentation for `cfcookie` for more information.                                                                                                                                                                                                |
 
 ### CORS Protection Settings
 
-CFWheels includes built-in Cross-Origin Resource Sharing (CORS) which allows you to configure which cross-origin requests and methods are allowed. By default, this feature is turned off which will deny cross origin requests at the browser level.&#x20;
+CFWheels includes built-in Cross-Origin Resource Sharing (CORS) which allows you to configure which cross-origin requests and methods are allowed. By default, this feature is turned off which will deny cross-origin requests at the browser level.&#x20;
 
 In this first version, the user can enable this feature, which will allow requests from all origins and all methods.&#x20;
 

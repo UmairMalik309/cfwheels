@@ -108,7 +108,7 @@ Now inside the `say` directory, create a file called `hello.cfm`. In the\
 
 {% code title="app/views/say/hello.cfm" %}
 ```html
-<h1>Hello World!</h>
+<h1>Hello World!</h1>
 ```
 {% endcode %}
 

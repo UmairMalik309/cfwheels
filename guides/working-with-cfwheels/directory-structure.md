@@ -12,20 +12,17 @@ app/\
 build/ \
 db/ \
 docker/ \
-docs/ \
 guides/ \
 public/ \
 tests/ \
 vendor/ \
+.cfformat.json \
+.editorconfig \
 .env \
 CFConfig.json \
 box.json \
 compose.yml \
 server.json
-{% endtab %}
-
-{% tab title="Second Tab" %}
-
 {% endtab %}
 {% endtabs %}
 
@@ -45,11 +42,11 @@ And the last directory? That's the framework itself. It exists in the _**vendor/
 
 ### Detailed Overview
 
-Let's go through all of the files and directories now starting with the ones you'll spend most of your time in: the code directories.
+Let's go through all the files and directories now, starting with the ones you'll spend most of your time in: the code directories.
 
 #### app/controllers
 
-This is where you create your controllers. You'll see two files in here already: `Controller.cfc` and `Wheels.cfc`. You can place functions inside `Controller.cfc` to have that function shared between all the controllers you create. (This works because all your controllers will extend `Controller`.) `Wheels.cfc` is an internal file used by Wheels.
+This is where you create your controllers. You'll see a file in here already: `Controller.cfc`. You can place functions inside this `Controller.cfc` to have those functions shared between all the controllers you create(This works because all your controllers will extend `Controller`.).
 
 #### app/models
 

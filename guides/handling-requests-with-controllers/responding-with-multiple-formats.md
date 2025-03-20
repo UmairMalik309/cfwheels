@@ -172,7 +172,7 @@ implement a view file like so:
 | pdf  | app/views/products/index.pdf.cfm  |
 | xls  | app/views/products/index.xls.cfm  |
 
-If you need to implement your own XML- or JSON-based output, the presence of\
+If you need to implement your own XML-based or JSON-based output, the presence of\
 your new custom view file will override the automatic generation that CFWheels\
 normally performs.
 

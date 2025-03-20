@@ -59,7 +59,7 @@ The debug area will also show the version number of the plugin if the plugin Aut
 
 ### Due Diligence
 
-Plugins are very powerful, remember, they can completely override other functions, including CFWheels core functions and functions of other installed plugins. For this reason we recommend that you hake a look at the code itself for the plugins that you intend to use. This is especially important if you have multiple plugins that override the same function. In those cases you'll have to determine if the plugins play well with each other (which they typically do if they run their code and then defer back to the CFWheels core function afterwards) or if they clash and cause problems (in which case you can perhaps contribute to the plugin repository in an effort to make the plugins behave better in situations like this).
+Plugins are very powerful, remember, they can completely override other functions, including CFWheels core functions and functions of other installed plugins. For this reason we recommend that you take a look at the code itself for the plugins that you intend to use. This is especially important if you have multiple plugins that override the same function. In those cases you'll have to determine if the plugins play well with each other (which they typically do if they run their code and then defer back to the CFWheels core function afterwards) or if they clash and cause problems (in which case you can perhaps contribute to the plugin repository in an effort to make the plugins behave better in situations like this).
 
 ### Available Plugins
 

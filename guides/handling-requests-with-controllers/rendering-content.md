@@ -67,7 +67,7 @@ requests sometimes.
 ### Rendering to a Variable
 
 Normally when you call any of the rendering functions, the result is stored\
-inside an internal Wheels variable. This value is then outputted to the browser\
+inside an internal Wheels variable. This value is then output to the browser\
 at the end of the request.
 
 Sometimes you may want to do some additional processing on the rendering result\
