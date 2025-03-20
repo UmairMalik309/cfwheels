@@ -39,6 +39,6 @@ If you don't want to be bothered by opening up a CFWheels configuration file at 
 
 ### 4. Test It
 
-When you've followed the steps above, you can test your installation by typing `http://localhost/` (or whatever you set as the host header name) in your web browser. You should get a page saying "Welcome to CFWheels!"
+When you've followed the steps above, you can test your installation by typing `http://localhost/` (or whatever you set as the host header name) in your web browser. You should get a "Congratulations!" page.
 
 That's it. You're done. This is where the fun begins!

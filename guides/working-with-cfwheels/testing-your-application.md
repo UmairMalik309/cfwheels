@@ -13,7 +13,7 @@ At some point, your code is going to break. Upgrades, feature enhancements, and 
 
 The problem is that today's fix could be tomorrow's bug. What if there were an automated way of checking if that change you're making is going to break something? That's where writing tests for your application can be invaluable.
 
-For testing your application in CFWheels, we have added a third party tool [TestBox](https://github.com/Ortus-Solutions/TestBox) in the framework which doesn't come preinstalled but you can install it by running `box install` in the Commandbox from inside your application. 
+For testing your application in CFWheels, we have added a third party tool [TestBox](https://github.com/Ortus-Solutions/TestBox) in the framework which doesn't come preinstalled but you can install it by running `box install` in the Commandbox from inside your application.
 
 ### The Test Framework
 
@@ -23,13 +23,14 @@ Testbox is a simple yet powerful tool for testing your application. It contains 
 
 In order to run tests against your application, all tests must reside in the `tests/Testbox` directory off the root of your CFWheels application, or within a subdirectory thereof.
 
-When you run the tests for your application, Testbox recursively scans your application's `tests/Testbox` directory for valid tests. Whilst you have freedom to organize your subdirectories, tests and supporting files any way you see fit, we would recommend using the directory structure below as a guide:
+When you run the tests for your application, Testbox recursively scans your application's `tests/Testbox/specs` directory for valid tests. Whilst you have freedom to organize your subdirectories, tests and supporting files any way you see fit, we would recommend using the directory structure below as a guide:
 
 ```
 tests/
   Testbox/
-  ├── functions/
-  ├── requests/
+    specs/
+    ├── functions/
+    ├── requests/
 ```
 
 {% hint style="info" %}
@@ -160,7 +161,7 @@ it("key exists in structure", () => {
 })
 ```
 
-When you wan to test if an exception will be thrown, you can use the `try{}catch{}` to test for it. An example of raising the `Wheels.TableNotFound` error when you specify an invalid model name:
+When you want to test if an exception will be thrown, you can use the `try{}catch{}` to test for it. An example of raising the `Wheels.TableNotFound` error when you specify an invalid model name:
 
 ```java
 it("Table not found", () => {
@@ -240,7 +241,7 @@ component extends="Model" {
 
 As you can see from the code above, our model has a `beforeSave` callback that runs whenever we save a user object. Let's get started writing some tests against this model to make sure that our callback works properly.
 
-First, create a test component called `/tests/Testbox/models/TestUserModel.cfc`, and in the `beforeEach` function, create an instance of the model that we can use in each test that we write. We will also create a structure containing some default properties for the model.
+First, create a test component called `/tests/Testbox/specs/models/TestUserModel.cfc`, and in the `beforeEach` function, create an instance of the model that we can use in each test that we write. We will also create a structure containing some default properties for the model.
 
 ```java
 beforeEach(() => {
@@ -294,7 +295,7 @@ it("sanitize email callback should return expected value", () => {
     copy of the database every time the test runs.
   */
   user.save(transaction="rollback")
-  
+
   // make sure that email address was sanitized
   expect(user.email).toBe("foo@bar.com")
 })
@@ -341,7 +342,7 @@ To work around this, the CFWheels test framework will "delay" the execution of a
 
 The drawback to this technique is that the controller will continue processing and as such we need to explicitly exit out of the controller action on our own, thus the reason why we use `return`.
 
-Let's create a test package called `/tests/Testbox/controllers/TestUsersController.cfc` to test that the `create` action works as expected:
+Let's create a test package called `/tests/Testbox/specs/controllers/TestUsersController.cfc` to test that the `create` action works as expected:
 
 ```java
 it("redirect and flash status", () => {
@@ -467,7 +468,7 @@ If you think that's too "ugly", you can instead make a public function on the co
 You may at some point want to test a partial (usually called via `includePartial()`) outside of a request. You'll notice that if you just try and call `includePartial()` from within the test suite, it won't work. Thankfully there's a fairly easy technique you can use by calling a "fake" or "dummy" controller.
 
 ```javascript
-component extends="tests.Test" {
+component extends="testbox.system.BaseSpec" {
     beforeEach(() => {
       params = {controller="dummy", action="dummy"}
       _controller = application.wo.controller("dummy", params)
@@ -617,7 +618,7 @@ component mixin="controller" {
 }
 ```
 
-In order to test our plugin, we'll need to do a little setup. Our plugin's tests will reside in a directory within our plugin package named `tests`. We'll also need a directory to keep test assets, in this case a dummy controller that we will need to instantiate in out test's `beforeEach()` function.
+In order to test our plugin, we'll need to do a little setup. Our plugin's tests will reside in a directory within our plugin package named `tests`. We'll also need a directory to keep test assets, in this case a dummy controller that we will need to instantiate in our test's `beforeEach()` function.
 
 ```
 app/
@@ -662,26 +663,26 @@ component extends="testbox.system.BaseSpec" {
 				_params = {controller="foo", action="bar"}
 				dummyController = application.wo.controller("Dummy", _params)
 			})
-		
+
 			afterEach(() => {
 				// reinstate the original application environment
 				application = applicationScope;
 			})
-		
+
 			// testing main public function
-			it("timeAgo returns expected value", () => {		
+			it("timeAgo returns expected value", () => {
 				actual = dummyController.timeAgo(fromTime=Now(), toTime=DateAdd("h", -1, Now()))
 				expected = "About 1 hour ago"
 				expect(actual).toBe(expected)
 			})
-		
+
 			// testing the 'private' function
 			it("timeAgo value to append returns expected value", () => {
 				actual = dummyController.__timeAgoValueToAppend()
 				expected = "ago"
 				expect(actual).toBe(expected)
 			})
-			
+
 		})
 	}
 }
@@ -719,7 +720,7 @@ component mixin="controller" {
 }
 ```
 
-In order to test our plugin, we'll need to do a little setup. Our plugin's tests will reside in a directory within our plugin package named `tests`. We'll also need a directory to keep test assets, in this case a dummy controller that we will need to instantiate in out test's `setup()` function.
+In order to test our plugin, we'll need to do a little setup. Our plugin's tests will reside in a directory within our plugin package named `tests`. We'll also need a directory to keep test assets, in this case a dummy controller that we will need to instantiate in our test's `setup()` function.
 
 ```
 plugins/
@@ -786,7 +787,7 @@ If your plugin is uses `mixin="model"`, you will need to create and instantiate 
 
 ### Running Your Tests
 
-You can run your tests by clicking on the `Testbox` button in your navbar. It will open a dropdown menu which will have two option. `App Tests` and `Core Tests`. You can run either the framework's tests by clicking on the `Core Tests` or you can run your own tests that you have written for your application by clicking on `App Tests`. Clciking on either of them will open another dropdown menu which will 4 options: `HTML`, `JSON`, `TXT` and `JUnit`. These are the formats in which you can get the result of your tests. After choosing your desired output format, click on that option. A new tab will open and you will get your test results after they have ran.
+You can run your tests by clicking on the `Testbox` button in your navbar. It will open a dropdown menu which will have two options. `App Tests` and `Core Tests`. You can run either the framework's tests by clicking on the `Core Tests` or you can run your own tests that you have written for your application by clicking on `App Tests`. Clicking on either of them will open another dropdown menu which will have 4 options: `HTML`, `JSON`, `TXT` and `JUnit`. These are the formats in which you can get the result of your tests. After choosing your desired output format, click on that option. A new tab will open and you will get your test results after they have run.
 
 The test URL will look something like this:\
 `/testbox`

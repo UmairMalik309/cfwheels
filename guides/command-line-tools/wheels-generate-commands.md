@@ -65,7 +65,7 @@ This is the confirmation screen that shows all the choices you've made and gives
 
 ![wheels new - final screen](<../.gitbook/assets/Screen Shot 2022-06-18 at 12.35.40 PM.png>)
 
-If you opted to continue you'll see a bunch of things scroll across your screen as the various items are downloaded and configured. Eventually you will see this status screen letting you know that everything was installed properly.&#x20;
+If you opted to continue, you'll see a bunch of things scroll across your screen as the various items are downloaded and configured. Eventually you will see this status screen letting you know that everything was installed properly.&#x20;
 
 ## `wheels generate app`
 

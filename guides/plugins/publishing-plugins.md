@@ -4,7 +4,7 @@ description: How to publish your plugin to forgebox.io via CommandBox
 
 # Publishing Plugins
 
-So, you've created your new magic, world solving plugin, and naturally, you want to share it with the world. CFWheels uses [forgebox.io](https://www.forgebox.io/type/cfwheels-plugins) as a plugins repository. This enables us to our CFWheels application's dependencies, install updates easily via CommandBox and more.
+So, you've created your new magic, world solving plugin, and naturally, you want to share it with the world. CFWheels uses [forgebox.io](https://www.forgebox.io/type/cfwheels-plugins) as a plugins repository. This enables us to manage our CFWheels application's dependencies, install updates easily via CommandBox and more.
 
 As a plugin author, it's well worth spending a little time setting yourself up to work with forgebox with the minimum amount of effort. Once done, you'll be able to either publish directly from the commandline, or upload to forgebox manually.
 

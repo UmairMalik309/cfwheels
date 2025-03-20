@@ -3,7 +3,7 @@
 ## INTRODUCTION
 
 * [Getting Started](README.md)
-  * [Running Local Development servers](introduction/readme/running-local-development-servers.md)
+  * [Running Local Development Servers](introduction/readme/running-local-development-servers.md)
   * [Beginner Tutorial: Hello World](introduction/readme/beginner-tutorial-hello-world.md)
   * [Beginner Tutorial: Hello Database](introduction/readme/beginner-tutorial-hello-database.md)
   * [Tutorial: CFWheels, AJAX, and You](introduction/readme/tutorial-cfwheels-ajax-and-you.md)
@@ -86,7 +86,7 @@
 * [Soft Delete](database-interaction-through-models/soft-delete.md)
 * [Automatic Time Stamps](database-interaction-through-models/automatic-time-stamps.md)
 * [Database Migrations](database-interaction-through-models/database-migrations/README.md)
-  * [Migrations In Production](database-interaction-through-models/database-migrations/migrations-in-production.md)
+  * [Migrations in Production](database-interaction-through-models/database-migrations/migrations-in-production.md)
 * [Using Multiple Data Sources](database-interaction-through-models/using-multiple-data-sources.md)
 
 ## Plugins
