@@ -22,7 +22,7 @@ This chapter will deal with the first part: getting the paginated data. Please p
 Let's jump straight to an example:
 
 ```javascript
-authors = application.wo.model("Author").findAll(page=2, perPage=25, order="lastName");
+authors = model("Author").findAll(page=2, perPage=25, order="lastName");
 ```
 
 That simple code will return authors 26-50 from the database, ordered by their last name.
@@ -32,7 +32,7 @@ What SQL statements are actually being executed depends on which database engine
 One important thing that you should be aware of is that pagination is done based on objects and not records. To illustrate what that means, we can expand on the above example a little:
 
 ```javascript
-authorsAndBooks = application.wo.model("Author").findAll(
+authorsAndBooks = model("Author").findAll(
   include="Books", page=2, perPage=25, order="lastName"
 );
 ```
@@ -42,7 +42,7 @@ Here, we tell Wheels that we also want to include any books written by the autho
 If you do want to paginate based on the books instead, all that you need to do is flip the `findAll()` statement around a little:
 
 ```javascript
-booksAndAuthors = application.wo.model("Book").findAll(
+booksAndAuthors = model("Book").findAll(
   include="Author", page=2, perPage=25, order="lastName"
 );
 ```

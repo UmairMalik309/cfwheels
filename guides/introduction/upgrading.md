@@ -18,7 +18,6 @@ Adobe Coldfusion 2016 and below are no longer compatible with CFWheels going for
 
 #### Code changes
 
-* Prefix global and controller functions with `application.wo`. For example, change the `model("")` function in your controllers to `application.wo.model("")`.
 * Migrate your tests from the `tests` directory which are written with rocketUnit and rewrite them into [Testbox](https://www.ortussolutions.com/products/testbox) in the `tests/Testbox` directory. Starting with CFWheels 3.x, [Testbox](https://www.ortussolutions.com/products/testbox) will replace RocketUnit as the default testing framework.
 * Starting with CFWheels 3.x, [Wirebox](https://www.ortussolutions.com/products/wireboxhttps://www.ortussolutions.com/products/wirebox) will be used as the default dependency injector.
 * After installing CFWheels 3.x, you'll have to run `box install` to intall testbox and wirebox in your application as they are not shipped with CFWheels but are rather listed in `box.json` file as dependencies to be installed.

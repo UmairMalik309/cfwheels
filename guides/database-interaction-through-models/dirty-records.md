@@ -25,7 +25,7 @@ Let's look at the methods Wheels provide to make tracking these changes easier f
 Let's get to coding…
 
 ```javascript
-post = application.wo.model("post").findByKey(1);
+post = model("post").findByKey(1);
 result = post.hasChanged();
 ```
 

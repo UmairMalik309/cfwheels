@@ -183,12 +183,12 @@ The controller continues with the simplicity of validation setup, and at the mos
 component extends="Controller" {
 
     public function save() {
-        //  User model from form fields via params 
-        newUser = application.wo.model("user").new(params.newUser);
-        //  Persist new user 
+        //  User model from form fields via params
+        newUser = model("user").new(params.newUser);
+        //  Persist new user
         if ( newUser.save() ) {
             redirectTo(action="success");
-            //  Handle errors 
+            //  Handle errors
         } else {
             renderView(action="index");
         }

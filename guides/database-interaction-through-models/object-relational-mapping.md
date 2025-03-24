@@ -15,26 +15,24 @@ Unlike most other languages, there is no notion of class level (a.k.a. "static")
 In CFWheels, we create an object like this:
 
 ```javascript
-application.wo.model("author");
+model("author");
 ```
 
 The built-in CFWheels [model()](https://api.cfwheels.org/controller.model.html) function will return a reference to an `author` object in the `application` scope (unless it's the first time you call this function, in which case it will also create and store it in the `application` scope).
-
-As we explained in the [Beginner Tutorial: Hello Database](https://guides.cfwheels.org/2.5.0/v/3.0.0-snapshot/introduction/readme/beginner-tutorial-hello-database) section, that the controler and global functions reside in the `application.wo` strcuture. So, whenever you want to call the `model()` function, you have to prefix it with the `application.wo`.
 
 Once you have the `author` object, you can start calling class methods on it, like [findByKey()](https://api.cfwheels.org/model.findbykey.html), for example. [findByKey()](https://api.cfwheels.org/model.findbykey.html) returns an instance of the object with data from the database record defined by the key value that you pass.
 
 Obviously, `author` is just an example here, and you'll use the names of the `.cfc` files you have created in the `app/models` folder.
 
 ```javascript
-authorClass = application.wo.model("author");
+authorClass = model("author");
 authorObject = authorClass.findByKey(1);
 ```
 
 For readability, this is usually combined into the following:
 
 ```javascript
-authorObject = application.wo.model("author").findByKey(1);
+authorObject = model("author").findByKey(1);
 ```
 
 Now `authorObject` is an instance of the `Author` class, and you can call object level methods on it, like [update()](https://api.cfwheels.org/model.update.html) and [save()](https://api.cfwheels.org/model.save.html).
@@ -71,7 +69,7 @@ Once you have created the file (or deliberately chosen not to for now), you will
 For example, you can write the following code to get the author with the primary key of `1`, change his first name, and save the record back to the database.
 
 ```javascript
-auth = application.wo.model("author").findByKey(1);
+auth = model("author").findByKey(1);
 auth.firstName = "Joe";
 auth.save();
 ```

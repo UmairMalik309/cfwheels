@@ -11,13 +11,13 @@ The concept is simple. Instead of using arguments to tell CFWheels what you want
 For example, the following code:
 
 ```javascript
-me = application.wo.model("user").findOne(where="email='me@myself.com'");
+me = model("user").findOne(where="email='me@myself.com'");
 ```
 
 Can also be written as:
 
 ```javascript
-me = application.wo.model("user").findOneByEmail("me@myself.com");
+me = model("user").findOneByEmail("me@myself.com");
 ```
 
 Through the power of `onMissingMethod()`, CFWheels will parse the method name and figure out that the value supplied is supposed to be matched against the `email` column.
@@ -27,7 +27,7 @@ Through the power of `onMissingMethod()`, CFWheels will parse the method name an
 You can take this one step further by using code such as:
 
 ```javascript
-me = application.wo.model("user").findOneByUserNameAndPassword("bob,pass");
+me = model("user").findOneByUserNameAndPassword("bob,pass");
 ```
 
 In this case, CFWheels will split the function name on the And part and determine that you want to find the record where the username column is "bob" and the password column is "pass".
@@ -45,13 +45,13 @@ In the background, these dynamically-named methods just pass along execution to 
 The below code, for example, is perfectly valid:
 
 ```javascript
-users = application.wo.model("user").findAllByState(value="NY", order="name", page=3);
+users = model("user").findAllByState(value="NY", order="name", page=3);
 ```
 
 When passing in multiple arguments like above, you have to start naming them instead of relying on the order of the arguments though. When doing so, you need to name the argument `value` if you're passing in just one value and `values` if you're passing in multiple values in a list. In other words, you need to name it `values` when calling an `And`type dynamic finder.
 
 ```javascript
-users = application.wo.model("user").findAllByCityAndState(
+users = model("user").findAllByCityAndState(
         values="Buffalo,NY", order="name", page=3
 );
 ```

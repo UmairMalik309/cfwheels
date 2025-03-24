@@ -33,10 +33,10 @@ First, in our controller, let's set the data needed for our form:
 
 {% code title="app/controllers/User.cfc" %}
 ```javascript
-// In app/controllers/User.cfc 
+// In app/controllers/User.cfc
 function new() {
-    var newProfile = application.wo.model("profile").new();
-    user = application.wo.model("user").new(profile=newProfile);
+    var newProfile = model("profile").new();
+    user = model("user").new(profile=newProfile);
 }
 ```
 {% endcode %}
@@ -50,7 +50,7 @@ If this were an `edit` action calling an existing object, our call would need to
 {% code title="app/controllers/User.cfc" %}
 ```javascript
 function edit() {
-    user = application.wo.model("user").findByKey(key=params.key, include="profile");
+    user = model("user").findByKey(key=params.key, include="profile");
 }
 ```
 {% endcode %}
@@ -100,7 +100,7 @@ You may be surprised to find out that our standard `create` action does not chan
 {% code title="app/controllers/Users.cfc" %}
 ```javascript
 function create() {
-    user = application.wo.model("user").new(params.user);
+    user = model("user").new(params.user);
     if ( user.save() ) {
         flashInsert(success="The user was created successfully.");
         redirectTo(controller=params.controller);
@@ -123,7 +123,7 @@ For the `edit` scenario, this is what our `update` action would look like (which
 {% code title="app/controllers/Users.cfc" %}
 ```javascript
 function update() {
-    user = application.wo.model("user").findByKey(params.user.id);
+    user = model("user").findByKey(params.user.id);
     if ( user.update(params.user) ) {
         flashInsert(success="The user was updated successfully.");
         redirectTo(action="edit");
@@ -186,8 +186,8 @@ In this example, we'll just put one new `address` in the array.
 {% code title="app/controllers/Users.cfc" %}
 ```javascript
 function new() {
-    var newAddresses = [ application.wo.model("address").new() ];
-    user = application.wo.model("user").new(addresses=newAddresses);
+    var newAddresses = [ model("address").new() ];
+    user = model("user").new(addresses=newAddresses);
 }
 ```
 {% endcode %}
@@ -197,7 +197,7 @@ In the `edit` scenario, we just need to remember to call the `include` argument 
 {% code title="app/controllers/Users.cfc" %}
 ```javascript
 function edit() {
-    user = application.wo.model("user").findByKey(key=params.key, include="addresses");
+    user = model("user").findByKey(key=params.key, include="addresses");
 }
 ```
 {% endcode %}
@@ -307,7 +307,7 @@ component extends="Model" {
     }
 
 }
-//  app/models/Publication.cfc 
+//  app/models/Publication.cfc
 component extends="Model" {
 
     public function config() {
@@ -315,7 +315,7 @@ component extends="Model" {
     }
 
 }
-//  app/models/Subscription.cfc 
+//  app/models/Subscription.cfc
 component extends="Model" {
 
     public function config() {
@@ -337,9 +337,9 @@ Here is how we would set up the nested properties in the `customer` model for th
 component extends="Model" {
 
     public function config() {
-        //  Associations 
+        //  Associations
         hasMany(name="subscriptions", shortcut="publications");
-        //  Nested properties 
+        //  Nested properties
         nestedProperties(
             associations="subscriptions",
             allowDelete=true
@@ -357,11 +357,11 @@ Let's define the data needed in an `edit` action in the controller at `app/contr
 {% code title="app/controllers/Customers.cfc" %}
 ```javascript
 function edit() {
-    customer = application.wo.model("customer").findByKey(
+    customer = model("customer").findByKey(
         key=params.key,
         include="subscriptions"
     );
-    publications = application.wo.model("publication").findAll(order="title");
+    publications = model("publication").findAll(order="title");
 }
 ```
 {% endcode %}
@@ -437,8 +437,8 @@ You'll notice that this example `update` action is fairly standard for a Wheels 
 {% code title="app/controllers/Customers.cfc" %}
 ```javascript
 function update() {
-    //  Load customer object 
-    customer = application.wo.model("customer").findByKey(params.customer.id);
+    //  Load customer object
+    customer = model("customer").findByKey(params.customer.id);
     /*  If update is successful, generate success message
         and redirect back to edit screen */
     if ( customer.update(params.customer) ) {

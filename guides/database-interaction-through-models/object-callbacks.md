@@ -146,7 +146,7 @@ Always remember to return the `arguments` struct, otherwise Wheels won't be able
 Note that callbacks set on included models are not executed. Look at this example:
 
 ```javascript
-fooBars = application.wo.model("foo").findAll(include="bars");
+fooBars = model("foo").findAll(include="bars");
 ```
 
 That will cause callback to be executed on the `Foo` model but not the `Bar` model.

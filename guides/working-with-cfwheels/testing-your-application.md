@@ -89,7 +89,7 @@ Example:
 
 ```java
 beforeEach(() => {
-  _controller = application.wo.controller(name="dummy")
+  _controller = controller(name="dummy")
 
   args = {
     fromTime=Now(),
@@ -166,7 +166,7 @@ When you want to test if an exception will be thrown, you can use the `try{}catc
 ```java
 it("Table not found", () => {
 	try {
-		application.wo.model('thisHasNoTable')
+		model('thisHasNoTable')
 		$assert.fail("Wheels.TableNotFound error did not occur.")
 	} catch (any e) {
 		type = e.Type
@@ -246,7 +246,7 @@ First, create a test component called `/tests/Testbox/specs/models/TestUserModel
 ```java
 beforeEach(() => {
   // create an instance of our model
-  user = application.wo.model("user")
+  user = model("user")
 
   // a structure containing some default properties for the model
   properties = {
@@ -310,17 +310,17 @@ component extends="Controller" {
 
   // users/index
   public void function index() {
-    users = application.wo.model("user").findAll()
+    users = model("user").findAll()
   }
 
   // users/new
   public void function new() {
-    user = application.wo.model("user").new()
+    user = model("user").new()
   }
 
   // users/create
   public any function create() {
-    user = application.wo.model("user").new(params.user)
+    user = model("user").new(params.user)
 
     // Verify that the user creates successfully
     if (user.save()) {
@@ -361,7 +361,7 @@ it("redirect and flash status", () => {
     }
 
   // process the create action of the controller
-  result = application.wo.processRequest(params=local.params, method="post", returnAs="struct")
+  result = processRequest(params=local.params, method="post", returnAs="struct")
 
   // make sure that the expected redirect happened
   expect(result.status).toBe(302)
@@ -386,7 +386,7 @@ it("status flash and redirect", () => {
     controller = "users",
     action = "update"
   }
-  result = application.wo.processRequest(params=local.params, method="post", rollback=true, returnAs="struct")
+  result = processRequest(params=local.params, method="post", rollback=true, returnAs="struct")
   expect(result.status).toBe(302)
   expect(result.flash).toHaveKey(error)
   expect(result.redirect).toBe('/common/error')
@@ -404,9 +404,9 @@ it("status database update email and flash", () => {
   }
   transaction {
 
-    result = application.wo.processRequest(params=local.params, method="post", returnAs="struct")
+    result = processRequest(params=local.params, method="post", returnAs="struct")
 
-    user = application.wo.model("user").findByKey(1)
+    user = model("user").findByKey(1)
     transaction action="rollback"
   }
   expect(result.status).toBe(302)
@@ -423,7 +423,7 @@ it("Test Json API", () => {
     format = "json",
     route = "countries"
   }
-  result = DeserializeJSON(application.wo.processRequest(local.params)).data
+  result = DeserializeJSON(processRequest(local.params)).data
   expect(result).toHaveLength(196)
 })
 
@@ -442,7 +442,7 @@ it("Test Json API create", () => {
     format = "json",
     route = "users"
   }
-  result = application.wo.processRequest(params=local.params, returnAs="struct").status;
+  result = processRequest(params=local.params, returnAs="struct").status;
   expect(result.status).toBe(201)
 })
 ```
@@ -456,7 +456,7 @@ this.employeeNumber = params.empNum;
 
 // Then from your test...
 
-local.controller = application.wo.controller(...);
+local.controller = controller(...);
 local.controller.processAction();
 theValue = local.controller.employeeNumber;
 ```
@@ -471,7 +471,7 @@ You may at some point want to test a partial (usually called via `includePartial
 component extends="testbox.system.BaseSpec" {
     beforeEach(() => {
       params = {controller="dummy", action="dummy"}
-      _controller = application.wo.controller("dummy", params)
+      _controller = controller("dummy", params)
     })
 
     it("Test my partial", () => {
@@ -521,7 +521,7 @@ it("users index contains heading", () => {
     action = "index"
   }
 
-  result = application.wo.processRequest(params=local.params, returnAs="struct")
+  result = processRequest(params=local.params, returnAs="struct")
 
   expect(result.status).toBe(200)
   expect(result.body).toHave('<h1>Create a New user</h1>')
@@ -546,7 +546,7 @@ Testing these helpers is fairly straightforward. All we need to do is compare th
 
 ```java
 it("stripSpaces should return expected result", () => {
-    actual = application.wo.stripSpaces(" foo   -   bar     ")
+    actual = stripSpaces(" foo   -   bar     ")
     expected = "foo-bar"
     expect(actual).toBe(expected)
 })
@@ -661,7 +661,7 @@ component extends="testbox.system.BaseSpec" {
 				StructDelete(application.wheels.functions, "timeAgo")
 				// we're always going to need a controller for these tests so we'll just create a dummy
 				_params = {controller="foo", action="bar"}
-				dummyController = application.wo.controller("Dummy", _params)
+				dummyController = controller("Dummy", _params)
 			})
 
 			afterEach(() => {

@@ -115,14 +115,14 @@ This code specifies that you want to cache the `browseByUser` and `browseByTitle
 {% code title="Caches Example" %}
 ```javascript
 component extends="Controller" {
-  
+
    function config(){
      caches(actions="browseByUser,browseByTitle", time=30);
    }
-   
+
    function browseByUser(){
      }
-   
+
    function browseByTitle(){
      }
 }
@@ -165,11 +165,11 @@ This code specifies that you want to cache the view page for the `browseByUser` 
 {% code title="browseByUser caches" %}
 ```javascript
 component extends="Controller" {
-   
+
    function browseByUser(){
      renderView(cache=60);
      }
-   
+
    function browseByTitle(){
      }
 }
@@ -207,7 +207,7 @@ You can cache result sets returned by your queries too. As a ColdFusion develope
 You can use query caching on all finder methods, and it looks like this:
 
 ```
-users = application.wo.model("user").findAll(where="name LIKE 'a%'", cache=10);
+users = model("user").findAll(where="name LIKE 'a%'", cache=10);
 ```
 
 So there you have it: 4 easy ways to speed up your website!

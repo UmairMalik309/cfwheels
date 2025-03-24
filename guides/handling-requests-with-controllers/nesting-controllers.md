@@ -76,6 +76,6 @@ It also potentially makes your `model()` calls more complex, as you need to spec
 {% code title="Example nested model call" %}
 ```javascript
 // Example for "LDAP.cfc" in "/models/auth"
-myNewLDAPModel=application.wo.model("auth.LDAP").new();
+myNewLDAPModel=model("auth.LDAP").new();
 ```
 {% endcode %}
