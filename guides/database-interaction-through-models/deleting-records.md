@@ -23,7 +23,7 @@ If you're unfamiliar with the concept of callbacks, you can read about them in t
 Here's a simple example of fetching a record from the database and then deleting it.
 
 ```javascript
-aPost = application.wo.model("post").findByKey(33);
+aPost = model("post").findByKey(33);
 aPost.delete();
 ```
 

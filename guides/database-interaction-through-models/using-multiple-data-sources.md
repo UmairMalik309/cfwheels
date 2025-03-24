@@ -16,7 +16,7 @@ Here's an example of a model file:
 
 ```javascript
 component extends="Model" {
-  
+
   function config(){
     dataSource("mySecondDatabase");
   }
@@ -35,7 +35,7 @@ Let's say you have the following models set up:
 {% code title="app/models/Photo.cfc" %}
 ```javascript
 component extends="Model" {
-  
+
   function config(){
     dataSource("myFirstDatabase");
     hasMany("photoGalleries");
@@ -48,7 +48,7 @@ component extends="Model" {
 {% code title="app/models/PhotoGallery.cfc" %}
 ```javascript
 component extends="Model" {
-  
+
   function config(){
     dataSource("mySecondDatabase");
   }
@@ -61,6 +61,6 @@ Because the `photo` model is the main model being used in the following example,
 
 {% code title="FindAll Call" %}
 ```javascript
-myPhotos = application.wo.model("photo").findAll(include="photoGalleries");
+myPhotos = model("photo").findAll(include="photoGalleries");
 ```
 {% endcode %}

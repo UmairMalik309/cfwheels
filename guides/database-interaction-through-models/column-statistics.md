@@ -17,13 +17,13 @@ Let's start with the [count()](https://api.cfwheels.org/model.count.html) functi
 To count how many rows you have in your `authors` table, simply do this:
 
 ```javascript
-authorCount = application.wo.model("author").count();
+authorCount = model("author").count();
 ```
 
 What if you only want to count authors with a last name starting with "A"? Like the [findAll()](https://api.cfwheels.org/model.findall.html) function, [count()](https://api.cfwheels.org/model.count.html) will accept a `where` argument, so you can do this:
 
 ```javascript
-authorCount = application.wo.model("author").count(where="lastName LIKE 'A%'");
+authorCount = model("author").count(where="lastName LIKE 'A%'");
 ```
 
 Simple enough. But what if you wanted to count only authors in the USA, and that information is stored in a different table? Let's say you have stored country information in a table called `profiles` and also setup a `hasOne` / `belongsTo` association between the `author` and `profile` models.
@@ -33,13 +33,13 @@ Just like in the [findAll()](https://api.cfwheels.org/model.findall.html) functi
 In our case, the code would end up looking something like this:
 
 ```javascript
-authorCount = application.wo.model("author").count(include="profile", where="countryId=1 AND lastName LIKE 'A%'");
+authorCount = model("author").count(include="profile", where="countryId=1 AND lastName LIKE 'A%'");
 ```
 
 Or, if you care more about readability than performance, why not just join in the `countries` table as well?
 
 ```javascript
-authorCount = application.wo.model("author").count(include="profile(country)", where="name='USA' AND lastName LIKE 'A%'");
+authorCount = model("author").count(include="profile(country)", where="name='USA' AND lastName LIKE 'A%'");
 ```
 
 In the background, these functions all perform SQL that looks like this:
@@ -57,7 +57,7 @@ However, if you include a `hasMany` association, CFWheels will be smart enough t
 For example, the following method call:
 
 ```javascript
-authorCount = application.wo.model("author").count(include="books", where="title LIKE 'Wheels%'");
+authorCount = model("author").count(include="books", where="title LIKE 'Wheels%'");
 ```
 
 Will execute this SQL (presuming `id` is the primary key of the `authors` table and the correct associations have been setup):
@@ -81,7 +81,7 @@ The same goes for the remaining column statistics functions as well; they all ac
 Here's an example of getting the average salary in a specific department:
 
 ```javascript
-avgSalary = application.wo.model("employee").average(property="salary", where="departmentId=1");
+avgSalary = model("employee").average(property="salary", where="departmentId=1");
 ```
 
 You can also pass in `distinct=true` to this function if you want to include only each unique instance of a value in the average calculation.
@@ -93,8 +93,8 @@ To get the highest and lowest values for a property, you can use the [minimum()]
 They are pretty self explanatory, as you can tell by the following examples:
 
 ```javascript
-highestSalary = application.wo.model("employee").maximum("salary");
-lowestSalary = application.wo.model("employee").minimum("salary");
+highestSalary = model("employee").maximum("salary");
+lowestSalary = model("employee").minimum("salary");
 ```
 
 ### Getting the Sum of All Values
@@ -106,7 +106,7 @@ As you have probably already figured out, [sum()](https://api.cfwheels.org/model
 Let's wrap up this chapter on a happy note by getting the total dollar amount you've made:
 
 ```javascript
-howRichAmI = application.wo.model("invoice").sum("billedAmount");
+howRichAmI = model("invoice").sum("billedAmount");
 ```
 
 ### Grouping Your Results
@@ -114,7 +114,7 @@ howRichAmI = application.wo.model("invoice").sum("billedAmount");
 All of the methods we've covered in this chapter accepts the `group` argument. Let's build on the example with getting the average salary for a department above, but this time, let's get the average for all departments instead.
 
 ```javascript
-avgSalaries = application.wo.model("employee").average(property="salary", group="departmentId");
+avgSalaries = model("employee").average(property="salary", group="departmentId");
 ```
 
 When you choose to group results like this you get a `cfquery` result set back, as opposed to a single value.

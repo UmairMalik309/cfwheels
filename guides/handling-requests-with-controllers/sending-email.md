@@ -94,7 +94,7 @@ Consider the following example:
 
 {% code title="Example" %}
 ```javascript
-member = application.wo.model("member").findByKey(newMember.id);
+member = model("member").findByKey(newMember.id);
 sendEmail(
     from="service@yourwebsite.com",
     to=member.email,
@@ -140,8 +140,8 @@ Alternatively you can pass in mail parameters directly if you require more contr
 {% code title="Mail Example" %}
 ```javascript
 // Create PDF
-cfdocument(name="PDFContent", format="pdf"){ 
-  writeOutput("<h1>Cats are better than dogz!</h1>"); 
+cfdocument(name="PDFContent", format="pdf"){
+  writeOutput("<h1>Cats are better than dogz!</h1>");
 };
 
 // Setup Mail Params
@@ -176,7 +176,7 @@ In this case, the two calls to [sendEmail()](https://api.cfwheels.org/controller
 {% code title="Example" %}
 ```javascript
 // Get new member.
-member = application.wo.model("member").findByKey(params.key);
+member = model("member").findByKey(params.key);
 
 // Customer email with customized header/footer.
 sendEmail(

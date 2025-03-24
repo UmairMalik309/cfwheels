@@ -76,7 +76,7 @@ For example, let's say that we only want to use `age` to return users who are in
 Example Code
 
 ```javascript
-users = application.wo.model("user").findAll(
+users = model("user").findAll(
         where="age >= 20 AND age < 30", order="age DESC"
 );
 ```
@@ -87,7 +87,7 @@ By default, calculated properties will return `char` as the column data type. Wh
 
 ```javascript
 property(
-  name="createdAtAlias", 
+  name="createdAtAlias",
   sql="posts.createdat", 
   dataType="datetime"
 );

@@ -206,13 +206,11 @@ component extends="Controller" {
     function config(){}
 
     function new() {
-        user = application.wo.model("user").new();
+        user = model("user").new();
     }
 }
 ```
 {% endcode %}
-
-Notice how we have prefixed the [model()](https://api.cfwheels.org/controller.model.html) function with `application.wo`. This is because, in CFWheels, all the global functions and functions for your controller reside in the `application.wo` structure. So, whenever you need to call a global function or a function for your controller, you have to prefix them with `application.wo`. You will see its use throughout the documentation wherever required.
 
 CFWheels will automatically know that we're talking about the `users` database table when we instantiate a `user` model. The convention: database tables are plural and their corresponding CFWheels models are singular.
 
@@ -266,7 +264,7 @@ A basic way of doing this is using the model object's [create()](https://api.cfw
 {% code title="app/controllers/Users.cfc" %}
 ```javascript
 function create() {
-    user = application.wo.model("user").create(params.user);
+    user = model("user").create(params.user);
 
     redirectTo(
         route="users",
@@ -289,7 +287,7 @@ First, let's get the data that the listing needs. Create an action named `index`
 {% code title="app/controllers/Users.cfc" %}
 ```javascript
 function index() {
-    users = application.wo.model("user").findAll(order="username");
+    users = model("user").findAll(order="username");
 }
 ```
 {% endcode %}
@@ -374,7 +372,7 @@ Given the provided `key`, we'll have the action load the appropriate `user` obje
 {% code title="app/controllers/Users.cfc" %}
 ```javascript
 function edit() {
-    user = application.wo.model("user").findByKey(params.key);
+    user = model("user").findByKey(params.key);
 }
 ```
 {% endcode %}
@@ -477,7 +475,7 @@ Now we'll create the `update` action. This will be similar to the `create` actio
 {% code title="app/controllers/Users.cfc" %}
 ```javascript
 function update() {
-    user = application.wo.model("user").findByKey(params.key);
+    user = model("user").findByKey(params.key);
     user.update(params.user);
 
     redirectTo(
@@ -500,7 +498,7 @@ Notice in our listing above that we have a `delete` action. Here's what it would
 {% code title="app/controllers/Users.cfc" %}
 ```javascript
 function delete() {
-    user = application.wo.model("user").findByKey(params.key);
+    user = model("user").findByKey(params.key);
     user.delete();
 
     redirectTo(

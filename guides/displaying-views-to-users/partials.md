@@ -105,7 +105,7 @@ Here's an example where we cache a partial for 15 minutes:
 Because it's quite common to use partials in conjunction with objects and queries, Wheels has built-in support for this too. Have a look at the code below, which passes in an object to a partial:
 
 ```javascript
-cust = application.wo.model("customer").findByKey(params.key);
+cust = model("customer").findByKey(params.key);
 #includePartial(cust)#
 ```
 
@@ -118,7 +118,7 @@ Try that code and `<cfdump>` the `arguments` struct inside the partial file, and
 Similar to passing in an object, you can also pass in a query result set to [includePartial()](https://api.cfwheels.org/controller.includepartial.html). Here's how that looks:
 
 ```javascript
-customers = application.wo.model("customer").findAll();
+customers = model("customer").findAll();
 #includePartial(partial="customers", query=customers)#
 ```
 
@@ -172,7 +172,7 @@ In this case, it's useful to use a partial to display each comment (using [inclu
 Here's what your controller action that receives the AJAX form submission would look like:
 
 ```javascript
-comment = application.wo.model("comment").create(params.newComment);
+comment = model("comment").create(params.newComment);
 renderPartial(comment);
 ```
 

@@ -59,8 +59,8 @@ Here is an example of using handles:
 In the controller...&#x20;
 
 ```javascript
-users = application.wo.model("user").findAll(handle="userQuery", page=params.page, perPage=25);
-blogs = application.wo.model("blog").findAll(handle="blogQuery", page=params.page, perPage=25);
+users = model("user").findAll(handle="userQuery", page=params.page, perPage=25);
+blogs = model("blog").findAll(handle="blogQuery", page=params.page, perPage=25);
 ```
 
 In the view...

@@ -21,7 +21,7 @@ In the following example, we assume that the `params.key` variable has been crea
 In your controller:
 
 ```javascript
-author = application.wo.model("author").findByKey(params.key);
+author = model("author").findByKey(params.key);
 if(!IsObject(author)){
     flashInsert(message="Author #params.key# was not found");
   redirectTo(back=true);
@@ -41,7 +41,7 @@ Often, you'll find yourself wanting to get a record (or many) based on a criteri
 As an example, let's say that you want to get the last order made by a customer. You can achieve this by using the `findOne()` method like so:
 
 ```javascript
-anOrder = application.wo.model("order").findOne(order="datePurchased DESC");
+anOrder = model("order").findOne(order="datePurchased DESC");
 ```
 
 ### Fetching Multiple Rows
@@ -97,13 +97,13 @@ It's worth mentioning that although Wheels does not support the `BETWEEN` operat
 Example with numeric value:
 
 ```javascript
-items = application.wo.model("item").findAll(where="price >= 100 AND price <= 500");
+items = model("item").findAll(where="price >= 100 AND price <= 500");
 ```
 
 The same goes for `NOT BETWEEN`:
 
 ```javascript
-items = application.wo.model("item").findAll(where="price <= 100 OR price >= 500");
+items = model("item").findAll(where="price <= 100 OR price >= 500");
 ```
 
 In CFWheels ORM queries, you need to surround strings with single quotes or leave the quotes out if you're passing in a number or boolean.&#x20;
@@ -111,7 +111,7 @@ In CFWheels ORM queries, you need to surround strings with single quotes or leav
 Example with non-numeric value:
 
 ```javascript
-bobsArticles = application.wo.model("author").findAll(where="firstName='Bob'");
+bobsArticles = model("author").findAll(where="firstName='Bob'");
 ```
 
 ### order Argument
@@ -127,7 +127,7 @@ This is a powerful feature that you can use if you have set up associations in y
 If, for example, you have specified that one `Author` has many `Articles`, then you can return all authors and articles in the same call by doing this:
 
 ```javascript
-bobsArticles = application.wo.model("author").findAll(where="firstName='Bob'", include="Articles");
+bobsArticles = model("author").findAll(where="firstName='Bob'", include="Articles");
 ```
 
 ### maxRows Argument
@@ -141,7 +141,7 @@ Set these if you want to get paginated data back.
 So if you wanted records 11-20, for example, you write this code:
 
 ```javascript
-bobsArticles = application.wo.model("author").findAll(
+bobsArticles = model("author").findAll(
         where="firstName='Bob'", include="Articles", page=2, perPage=10
 );
 ```
@@ -157,7 +157,7 @@ In the beginning of this chapter, we said that you either get a query or an obje
 To do this, you use the `returnAs` argument. If you want an array of objects back from a [findAll()](https://api.cfwheels.org/model.findall.html) call, for example, you can do this:
 
 ```javascript
-users = application.wo.model("user").findAll(returnAs="objects");
+users = model("user").findAll(returnAs="objects");
 ```
 
 On [findOne()](https://api.cfwheels.org/model.findone.html) and [findByKey()](https://api.cfwheels.org/model.findbykey.html), you can set this argument to either `object` or `query`. On the [findAll()](https://api.cfwheels.org/model.findall.html) method, you can set it to `objects` (note the plural) or `query`.
@@ -169,7 +169,7 @@ We recommend sticking to this convention as much as possible because of the CFML
 If you have a specific index setup on a table that you'd like the `findAll()` call to use, you can specify a structure of arguments for each model/index you'd like to use. Only MySQL and SQLServer support index hints.
 
 ```javascript
-application.wo.model("author").findAll(
+model("author").findAll(
     include="posts",
     useIndex={
         author="idx_authors_123",

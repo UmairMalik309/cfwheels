@@ -7,7 +7,7 @@ description: How to create new objects and save them to the database.
 In Wheels, one way to create objects that represent records in our table is by calling the [new()](https://api.cfwheels.org/model.new.html) class-level method.
 
 ```javascript
-newAuthor = application.wo.model("author").new();
+newAuthor = model("author").new();
 ```
 
 We now have an empty `Author` object that we can start filling in properties for. These properties correspond with the columns in the `authors` database table, unless you have mapped them specifically to columns with other names (or mapped to an entirely different table).
@@ -30,7 +30,7 @@ If you want to create a new object based on parameters sent in from a form reque
 Given that `params.newAuthor` is a struct containing the `firstName` and `lastName` variables, the code below does the same as the code above (without saving it though).
 
 ```javascript
-newAuthor = application.wo.model("author").new(params.newAuthor);
+newAuthor = model("author").new(params.newAuthor);
 ```
 
 ### Saving Straight to the Database
@@ -39,7 +39,7 @@ If you want to save a new author to the database right away, you can use the [cr
 
 {% code title="" %}
 ```javascript
-application.wo.model("author").create(params.newAuthor);
+model("author").create(params.newAuthor);
 ```
 {% endcode %}
 
@@ -51,7 +51,7 @@ This means you can read the value by doing something like this. (This example as
 
 ```javascript
 <cfscript>
-newAuthor = application.wo.model("author").new();
+newAuthor = model("author").new();
 newAuthor.firstName = "Joe";
 newAuthor.lastName = "Jones";
 newAuthor.save();
@@ -72,7 +72,7 @@ However, unlike the primary key, Wheels will not automatically load database def
 Of course, if you do need to access the database default immediately after saving, Wheels allows this. Simply add `reload=true` to the [create()](https://api.cfwheels.org/model.create.html), [update()](https://api.cfwheels.org/model.update.html), or [save()](https://api.cfwheels.org/model.save.html) methods:
 
 ```javascript
-newAuthor = application.wo.model("author").new();
+newAuthor = model("author").new();
 newAuthor.firstName = "Joe";
 newAuthor.lastName = "Jones";
 newAuthor.save(reload=true);
@@ -89,7 +89,7 @@ property(name="welcomeText", defaultValue="Hello world!");
 This is effectively the same as doing this:
 
 ```javascript
-application.wo.model("myModel").new(welcomeText="Hello world!");
+model("myModel").new(welcomeText="Hello world!");
 ```
 
 ..except you only need to set it once per model.

@@ -13,7 +13,7 @@ This chapter will focus on how to update records. Read the [Creating Records](ht
 Let's start with an example of getting a blog post from the database, updating its title, and saving it back:
 
 ```javascript
-post = application.wo.model("post").findByKey(33);
+post = model("post").findByKey(33);
 post.title = "New version of Wheels just released";
 post.save();
 ```
@@ -21,7 +21,7 @@ post.save();
 You can also change the values of one or more properties and save them to the database in one single call using the `update()` method, like this:
 
 ```javascript
-post = application.wo.model("post").findByKey(33);
+post = model("post").findByKey(33);
 post.update(title="New version of Wheels just released");
 ```
 
@@ -32,7 +32,7 @@ You can also pass in name/value pairs to `update()` as a struct. The main reason
 This is how it would look if you wanted to update the properties for a post based on a submitted form.
 
 ```javascript
-post = application.wo.model("post").findByKey(params.key);
+post = model("post").findByKey(params.key);
 post.update(params.post);
 ```
 
@@ -41,7 +41,7 @@ It's also possible to combine named arguments with a struct, but then you need t
 Example:
 
 ```javascript
-post = application.wo.model("post").findByKey(params.key);
+post = model("post").findByKey(params.key);
 post.update(title="New version of Wheels just released", properties=params.post);
 ```
 
@@ -60,13 +60,13 @@ By default, [updateByKey()](https://api.cfwheels.org/model.updatebykey.html) wil
 An example of using [updateByKey()](https://api.cfwheels.org/model.updatebykey.html) by passing a struct:
 
 ```javascript
-result = application.wo.model("post").updateByKey(33, params.post);
+result = model("post").updateByKey(33, params.post);
 ```
 
 And an example of using [updateByKey()](https://api.cfwheels.org/model.updatebykey.html) by passing named arguments:
 
 ```javascript
-result = application.wo.model("post").updateByKey(id=33, title="New version of Wheels just released", published=1);
+result = model("post").updateByKey(id=33, title="New version of Wheels just released", published=1);
 ```
 
 ### Updating Multiple Rows with updateAll()
@@ -78,7 +78,7 @@ The `where` argument is used exactly as you specify it in the `WHERE` clause of 
 An example:
 
 ```javascript
-recordsReturned = application.wo.model("post").updateAll(
+recordsReturned = model("post").updateAll(
         published=1, publishedAt=Now(), where="published=0"
 );
 ```

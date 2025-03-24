@@ -42,7 +42,7 @@ Instead of "April 27, 2009 10:10 pm," it may be more helpful to display "a few m
     <div class="comment">
         <h2>#comments.title#</h2>
 
-        <p class="timestamp">(#application.wo.timeAgoInWords(comments.createdAt)#)</p>
+        <p class="timestamp">(#timeAgoInWords(comments.createdAt)#)</p>
         <p>#comments.comment#</p>
     </div>
 </cfoutput>
@@ -128,7 +128,7 @@ To illustrate what the text helpers can help you with, let's see a piece of code
     <p>
        #highlight(text="Your search for #params.q#", phrases=params.q)#
        returned #searchResults.RecordCount#
-       #application.wo.pluralize(word="result", count=searchResults.RecordCount)#.
+       #pluralize(word="result", count=searchResults.RecordCount)#.
     </p>
 </cfoutput>
 ```

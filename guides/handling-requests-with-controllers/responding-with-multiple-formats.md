@@ -91,7 +91,7 @@ You can use [addFormat()](https://api.cfwheels.org/controller.addformat.html) to
 `app/config/settings.cfm` like so:
 
 ```javascript
-application.wo.addFormat(extension="doc", mimeType="application/msword");
+addFormat(extension="doc", mimeType="application/msword");
 ```
 
 ### Responding to Different Formats in the Controller
@@ -107,9 +107,9 @@ component extends="Controller" {
   function config(){
     provides("html,json,xml");
   }
-  
+
   function index(){
-    products = application.wo.model("product").findAll(order="title");
+    products = model("product").findAll(order="title");
     renderWith(products);
   }
 }
@@ -142,7 +142,7 @@ Unfortunately there have been a lot of JSON related issues in CFML over the year
 First of all, always return data as an array of structs. This is done by using the `returnAs` argument (on [findAll()](https://api.cfwheels.org/model.findall.html) for example), like this:
 
 ```javascript
-authors = application.wo.model("author").findAll(returnAs="structs");
+authors = model("author").findAll(returnAs="structs");
 ```
 
 The reason for doing it this way is that it will preserve the case for the struct / JSON keys.

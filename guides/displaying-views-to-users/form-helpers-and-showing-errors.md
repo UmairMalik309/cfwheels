@@ -43,7 +43,7 @@ Here is a simple form for editing a user profile. Normally, you would code your 
             </cfloop>
         </select>
     </div>
-    
+
     <div>
         <input type="submit" value="Save Changes">
     </div>
@@ -301,7 +301,7 @@ Because we've named `firstName`, `lastName`, and `departmentId` in conventional 
 #startFormTag(route="profile", method="patch")#
     #textField(objectName="profile", property="firstName")#
     #textField(objectName="profile", property="lastName")#
-    
+
     #select(
         objectName="profile",
         property="departmentId",
@@ -350,7 +350,7 @@ The `update` action may look something like this:
 function update() {
     // In this example, we're loading an existing object based on the user's
     // session.
-    profile = application.wo.model("user").findByKey(session.userId);
+    profile = model("user").findByKey(session.userId);
 
     // If everything validated, then send user to success message
     if (profile.update(params.profile)) {
@@ -665,11 +665,11 @@ The answer lies in the `account` object that the fields are bound to. Let's say 
 ```javascript
 component extends="controllers.Controller" {
     function new() {
-        local.defaultAccountType = application.wo.model("accountType").findOne(
+        local.defaultAccountType = model("accountType").findOne(
           where="isDefault=1"
         );
 
-        account = application.wo.model("account").new(
+        account = model("account").new(
             title=generateRandomTitle(),
             accountTypeId=local.defaultAccountType.key(),
             subscribedToNewsletter=true
