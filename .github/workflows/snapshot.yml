@@ -35,10 +35,10 @@ jobs:
   #############################################
   # Build Snapshot Release
   #############################################
-  build:
-    needs: tests
-    uses: ./.github/workflows/release.yml
-    secrets:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      FORGEBOX_API_TOKEN: ${{ secrets.FORGEBOX_API_TOKEN }}
-      FORGEBOX_PASS: ${{ secrets.FORGEBOX_PASS }}
+#  build:
+#    needs: tests
+#    uses: ./.github/workflows/release.yml
+#    secrets:
+#      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+#      FORGEBOX_API_TOKEN: ${{ secrets.FORGEBOX_API_TOKEN }}
+3      FORGEBOX_PASS: ${{ secrets.FORGEBOX_PASS }}
