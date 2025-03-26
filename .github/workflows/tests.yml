@@ -10,7 +10,7 @@ on:
 jobs:
   tests:
     name: Test Suites
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       fail-fast: false
@@ -74,7 +74,7 @@ jobs:
       - name: Start external DB if needed (${{ matrix.dbengine }}) ...
         if: ${{ matrix.dbengine != 'h2' }}
         run: |
-          docker compose up -d ${{ matrix.dbengine }}
+          docker compose up -d ${{ matrix.dbengine }} --no-cache
           sleep 20
 
       - name: Setup Java
