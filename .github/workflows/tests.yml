@@ -73,7 +73,7 @@ jobs:
 
       - name: Start external DB if needed (${{ matrix.dbengine }}) ...
         if: ${{ matrix.dbengine != 'h2' }}
-        run: 
+        run: |
           docker compose up -d ${{ matrix.dbengine }}
           sleep 20
 
