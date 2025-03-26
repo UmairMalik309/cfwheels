@@ -10,7 +10,7 @@ on:
 jobs:
   tests:
     name: Test Suites
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       fail-fast: false
@@ -117,6 +117,7 @@ jobs:
           docker/github/core-tests.sh ${{ matrix.cfengine }} ${{ matrix.dbengine }}
 
       - name: Failure Debugging Info
+        if: ${{ failure() }}
         run: |
           box version
           box server info serverConfigFile="server.json" --json
