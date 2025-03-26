@@ -25,16 +25,16 @@ jobs:
             dbengine: mysql
           - cfengine: lucee@5
             dbengine: postgres
-          #- cfengine: lucee@5
-          #  dbengine: sqlserver_cicd
+          - cfengine: lucee@5
+            dbengine: sqlserver_cicd
           - cfengine: lucee@5
             dbengine: h2
           - cfengine: lucee@6
             dbengine: mysql
           - cfengine: lucee@6
             dbengine: postgres
-          #- cfengine: lucee@6
-          #  dbengine: sqlserver_cicd
+          - cfengine: lucee@6
+            dbengine: sqlserver_cicd
           - cfengine: lucee@6
             dbengine: h2
           - cfengine: adobe@2018
@@ -49,16 +49,16 @@ jobs:
             dbengine: mysql
           - cfengine: adobe@2021
             dbengine: postgres
-          # - cfengine: adobe@2021
-          #   dbengine: sqlserver_cicd
+          - cfengine: adobe@2021
+            dbengine: sqlserver_cicd
           - cfengine: adobe@2021
             dbengine: h2
           - cfengine: adobe@2023
             dbengine: mysql
           - cfengine: adobe@2023
             dbengine: postgres
-          # - cfengine: adobe@2023
-          #   dbengine: sqlserver_cicd
+          - cfengine: adobe@2023
+            dbengine: sqlserver_cicd
           - cfengine: adobe@2023
             dbengine: h2
     steps:
