@@ -105,6 +105,11 @@ jobs:
         run: |
           box status
           docker ps 
+          docker ps
+          docker ps
+          docker ps
+          docker ps
+          docker ps
 
       - name: Run Tests ${{ matrix.cfengine }} ${{ matrix.dbengine }}
         run: |
