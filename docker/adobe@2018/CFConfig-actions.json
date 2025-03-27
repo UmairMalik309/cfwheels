@@ -51,7 +51,7 @@
 			"dsn": "jdbc:sqlserver://{host}:{port}",
 			"host": "localhost",
 			"password": "x!bsT8t60yo0cTVTPq",
-			"port": "1434",
+			"port": "1433",
 			"username": "sa",
 			"validate": "false"
 		},

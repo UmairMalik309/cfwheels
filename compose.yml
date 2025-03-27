@@ -142,4 +142,4 @@ services:
       ACCEPT_EULA: Y
       MSSQL_PID: Developer
     ports:
-      - "1434:1433"
+      - "1433:1433"
