@@ -102,18 +102,9 @@ jobs:
         if: ${{ matrix.cfengine == 'adobe@2021' }} || ${{ matrix.cfengine == 'adobe@2023' }}
         run: box run-script onServerInstall
 
-      - name: check if server is running 
-        run: |
-          box status
-          docker ps 
-          docker ps
-          docker ps
-          docker ps
-          docker ps
-          docker ps
-
       - name: Run Tests ${{ matrix.cfengine }} ${{ matrix.dbengine }}
         run: |
+          rm -rf /tmp/
           docker/github/core-tests.sh ${{ matrix.cfengine }} ${{ matrix.dbengine }}
 
       - name: Failure Debugging Info
