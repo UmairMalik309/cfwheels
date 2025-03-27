@@ -19,7 +19,7 @@
 			"class": "com.mysql.cj.jdbc.Driver",
 			"database": "wheelstestdb",
 			"dbdriver": "mysql",
-			"dsn": "jdbc:mysql://{host}:{port}/{database}?tinyInt1isBit=false",
+			"dsn": "jdbc:mysql://{host}:{port}/{database}",
 			"host": "localhost",
 			"password": "wheelstestdb",
 			"port": "3307",
