@@ -45,7 +45,7 @@
 			"class": "com.microsoft.jdbc.sqlserver.SQLServerDriver",
 			"clob": "false",
 			"connectionLimit": "-1",
-			"connectionTimeout": "20",
+			"connectionTimeout": "200",
 			"database": "wheelstestdb",
 			"dbdriver": "MSSQL",
 			"dsn": "jdbc:sqlserver://{host}:{port}",
