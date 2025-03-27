@@ -105,7 +105,6 @@ jobs:
 
       - name: Run Tests ${{ matrix.cfengine }} ${{ matrix.dbengine }}
         run: |
-          curl -I localhost:62018
           docker/github/core-tests.sh ${{ matrix.cfengine }} ${{ matrix.dbengine }}
 
       - name: Failure Debugging Info
