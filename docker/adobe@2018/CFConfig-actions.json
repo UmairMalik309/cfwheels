@@ -42,13 +42,17 @@
 		},
 		"wheelstestdb_sqlserver": {
 			"blob": "false",
-			"class": "com.microsoft.sqlserver.jdbc.SQLServerDriver",
-			"connectionString": "jdbc:sqlserver://localhost:1434;databaseName=wheelstestdb;encrypt=false;trustServerCertificate=true",
-			"database": "wheelstestdb",
-			"username": "sa",
-			"password": "x!bsT8t60yo0cTVTPq",
-			"connectionTimeout": "20",
+			"class": "com.microsoft.jdbc.sqlserver.SQLServerDriver",
+			"clob": "false",
 			"connectionLimit": "-1",
+			"connectionTimeout": "20",
+			"database": "wheelstestdb",
+			"dbdriver": "MSSQL",
+			"dsn": "jdbc:sqlserver://{host}:{port}",
+			"host": "localhost",
+			"password": "x!bsT8t60yo0cTVTPq",
+			"port": "1434",
+			"username": "sa",
 			"validate": "false"
 		},
 		"msdb_sqlserver": {
