@@ -104,7 +104,7 @@ jobs:
 
       - name: Run Tests ${{ matrix.cfengine }} ${{ matrix.dbengine }}
         run: |
-          rm -rf /tmp/
+          sudo rm -rf /tmp/
           docker/github/core-tests.sh ${{ matrix.cfengine }} ${{ matrix.dbengine }}
 
       - name: Failure Debugging Info
