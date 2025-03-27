@@ -68,6 +68,7 @@ jobs:
       - name: Copy server.json files
         run: |
           sudo rm -f /tmp/customcache.data
+          ls -ls /tmp/
           cp ./docker/${{ matrix.cfengine }}/server.json ./
           cp ./docker/${{ matrix.cfengine }}/CFConfig-actions.json ./CFConfig.json
           cp ./docker/${{ matrix.cfengine }}/settings.cfm ./app/config/settings.cfm
