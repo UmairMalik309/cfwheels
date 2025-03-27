@@ -67,7 +67,7 @@ jobs:
 
       - name: Copy server.json files
         run: |
-          sudo chmod -R 777 /tmp/
+          sudo rm -f /tmp/customcache.data
           cp ./docker/${{ matrix.cfengine }}/server.json ./
           cp ./docker/${{ matrix.cfengine }}/CFConfig-actions.json ./CFConfig.json
           cp ./docker/${{ matrix.cfengine }}/settings.cfm ./app/config/settings.cfm
@@ -75,7 +75,6 @@ jobs:
       - name: Start external DB if needed (${{ matrix.dbengine }}) ...
         if: ${{ matrix.dbengine != 'h2' }}
         run: |
-          docker compose build --no-cache ${{ matrix.dbengine }}
           docker compose up -d ${{ matrix.dbengine }}
 
       - name: Setup Java
