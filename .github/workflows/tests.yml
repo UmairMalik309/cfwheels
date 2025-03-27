@@ -25,8 +25,8 @@ jobs:
             dbengine: mysql
           - cfengine: lucee@5
             dbengine: postgres
-          #- cfengine: lucee@5
-          #  dbengine: sqlserver_cicd
+          - cfengine: lucee@5
+            dbengine: sqlserver_cicd
           - cfengine: lucee@5
             dbengine: h2
           - cfengine: lucee@6
